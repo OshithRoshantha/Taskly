@@ -40,7 +40,7 @@ export default function SignUp() {
             <Form.Label className='text-info'>Password</Form.Label>
             <InputGroup>
                 <InputGroup.Text><i class="bi bi-shield-lock-fill"></i></InputGroup.Text>
-                <Form.Control className='inputField' type="password" required  placeholder="Password"/>
+                <Form.Control className='inputField' type="password" required  placeholder="Create password"/>
             </InputGroup>
         </Col>      
       </Row>
