@@ -1,0 +1,48 @@
+.bi{
+    color: #e78a21;
+    font-size: 150%;
+    cursor: pointer;
+}
+.me-auto{
+    margin-left: 40%;
+}
+.headerIcon{
+    height: 100%;
+}
+.iconCo{
+    height: 7vh;
+}
+.text-dark{
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    column-gap: 4%;
+}
+.canavaBtn{
+    display: flex;
+    align-items: center;
+    column-gap: 4%;
+    font-size: 90%;
+}
+.canavaIconAdd{
+    color:#113143;
+    font-size: 180%;
+}
+.canavaIcon{
+    color:#113143;
+}
+.userIcon{
+    color: #113143;
+}
+.gearIcon{
+    font-size: 180%;
+}
+.logOut{
+    display: flex;
+    align-items: center;
+    column-gap: 4%;
+}
+.dropdownText{
+    text-align: center;
+    font-weight: bold;
+}
