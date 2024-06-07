@@ -47,28 +47,28 @@ export default function AppHeader() {
             <div className="iconCo"><img className='headerIcon' src='../headerIcon.png'/></div>
           </Nav>
           <Nav>
-              <NavDropdown title={<i className="bi bi-gear gearIcon"></i>} id="basic-nav-dropdown">
+              <NavDropdown title={<i className="bi bi-gear gearIcon"></i>} id="basic-nav-dropdown" menuVariant="dark">
               <div className="dropdownText">
                  <i class="bi bi-person-circle userIcon"></i><br/>{userName},
               </div>
-              
+              <br/>
               <NavDropdown.Item className='logOut px-6'><i class="bi bi-box-arrow-left"></i> Log Out</NavDropdown.Item>
               </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-    <Offcanvas show={show} onHide={handleClose} className="bg-secondary" style={{width: '18%'}}>
+    <Offcanvas show={show} onHide={handleClose} className="bg-dark" style={{width: '18%'}}>
         <Offcanvas.Header >
-          <Offcanvas.Title className='text-dark'><i class="bi bi-person-circle userIcon"></i>{userName},</Offcanvas.Title>
+          <Offcanvas.Title className='text-info'><br/>Hi,<br/>{userName}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>
-          <Button variant='secondary' className='text-dark' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
+          <Button variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
           <br/>
-          <Button className='canavaBtn' variant='secondary'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
-          <Button className='canavaBtn' variant='secondary'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
-          <Button className='canavaBtn' variant='secondary'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-plus canavaIcon"></i>Upcoming</Button>
+          <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
+          <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
+          <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-plus canavaIcon"></i>Upcoming</Button>
         </Offcanvas.Body>
     </Offcanvas>
     </div>

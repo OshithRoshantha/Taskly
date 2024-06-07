@@ -12,27 +12,29 @@
 .iconCo{
     height: 7vh;
 }
-.text-dark{
+.text{
     font-weight: bold;
     display: flex;
     align-items: center;
     column-gap: 4%;
+    color: #ffffff;
 }
 .canavaBtn{
     display: flex;
     align-items: center;
     column-gap: 4%;
     font-size: 90%;
+    color: #ffffff;
 }
 .canavaIconAdd{
-    color:#113143;
+    color:#ffffff;
     font-size: 180%;
 }
 .canavaIcon{
-    color:#113143;
+    color:#ffffff;
 }
 .userIcon{
-    color: #113143;
+    color:#ffffff;
 }
 .gearIcon{
     font-size: 180%;
