@@ -1,12 +1,20 @@
 import logo from './logo.svg';
 import Button from 'react-bootstrap/Button';
 import './App.css';
-import AppHeader from './Components/AppHeader';
+import Dashboard from './Pages/Dashboard';
+import Login from './Pages/Login';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
-      <AppHeader/>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/*' element={<Login/>}></Route>
+          <Route path='Dashboard' element={<Dashboard/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

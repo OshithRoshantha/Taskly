@@ -48,3 +48,14 @@
     text-align: center;
     font-weight: bold;
 }
+.userWelcome{
+    text-align: center;
+    margin-left: 15%;
+}
+.containerHeader{
+    margin-left: 8%;
+    gap: 35%;
+}
+.headerRight{
+    margin-left: 96%;
+}

@@ -9,12 +9,16 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Components/AppHeader.css'
 
 export default function AppHeader() {
+  const fName="Oshith";
+  const lName="Roshantha";
+    const userName= `${fName} ${lName}`;
+
     const [time, setTime] = useState(new Date().toLocaleTimeString());
     const [date, setDate] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const userName="Oshith Roshnatha";
+    
         useEffect(() => {
         const timer = setInterval(() => {
           setTime(new Date().toLocaleTimeString());
@@ -39,20 +43,20 @@ export default function AppHeader() {
   return (
     <div class="HeaderContainer">
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary-dark" bg="dark">
-      <Container>
+      <Container className='containerHeader'>
         <Navbar.Brand onClick={handleShow}><i class="bi bi-layout-sidebar-inset primary"></i></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav ">
           <Nav className="me-auto">
             <div className="iconCo"><img className='headerIcon' src='../headerIcon.png'/></div>
           </Nav>
-          <Nav>
+          <Nav className='headerRight'>
               <NavDropdown title={<i className="bi bi-gear gearIcon"></i>} id="basic-nav-dropdown" menuVariant="dark">
               <div className="dropdownText">
                  <i class="bi bi-person-circle userIcon"></i><br/>{userName},
               </div>
               <br/>
-              <NavDropdown.Item className='logOut px-6'><i class="bi bi-box-arrow-left"></i> Log Out</NavDropdown.Item>
+              <NavDropdown.Item className='logOut px-6' href='/'><i class="bi bi-box-arrow-left"></i> Log Out</NavDropdown.Item>
               </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -60,7 +64,7 @@ export default function AppHeader() {
     </Navbar>
     <Offcanvas show={show} onHide={handleClose} className="bg-dark" style={{width: '18%'}}>
         <Offcanvas.Header >
-          <Offcanvas.Title className='text-info'><br/>Hi,<br/>{userName}</Offcanvas.Title>
+          <Offcanvas.Title className='text-info userWelcome'><br/>Hi,<br/>{userName}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>

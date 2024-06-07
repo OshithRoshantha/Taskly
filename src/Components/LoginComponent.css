@@ -1,0 +1,27 @@
+.container{
+    width: 58%;
+    padding: 0%;
+}
+.signIn{
+    width: 100%;
+}
+.inputcontainer{
+    background-color: #113143;
+    padding: 0% 11%;
+    text-align: left;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7%;
+}
+.inputField:focus{
+    box-shadow: none;
+}
+.noAccount{
+    display: flex;
+    gap: 2%;
+}
+.linkTo{
+    text-decoration: none;
+}

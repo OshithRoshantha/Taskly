@@ -1,0 +1,11 @@
+.background{
+    background-color: red;
+    height: 100vh;
+    width: 120%;
+
+}
+.containerLogin{
+    display: flex;
+    padding: 0%;
+    margin: 0%;
+}
