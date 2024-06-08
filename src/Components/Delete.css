@@ -1,0 +1,15 @@
+.deleteHead{
+    font-size: 100%;
+    text-align: left;
+}
+.deleteSub{
+    font-size: 80%;
+    text-align: left;
+}
+.deleteContainer{
+    width: 25vw;
+    margin-left: 37.5%;
+}
+.deleteIcon{
+    margin-left: -94%;
+}
