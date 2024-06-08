@@ -18,11 +18,11 @@ export default function SignUp() {
       <Row>
         <Col>
             <Form.Label className='text-info'>First Name</Form.Label>
-            <Form.Control className='inputField' placeholder="First name" />
+            <Form.Control className='inputField' placeholder="John" />
         </Col>
         <Col>
             <Form.Label className='text-info'>Last Name</Form.Label>
-            <Form.Control className='inputField' placeholder="Last name" />
+            <Form.Control className='inputField' placeholder="Doe" />
         </Col>
       </Row>
       <Row>
@@ -31,7 +31,7 @@ export default function SignUp() {
             <Form.Label className='text-info'>Email Address</Form.Label>
             <InputGroup>
                 <InputGroup.Text><i class="bi bi-envelope-at-fill"></i></InputGroup.Text>
-                <Form.Control className='inputField' type="email" required placeholder="you@example.com"/>
+                <Form.Control className='inputField' type="email" required placeholder="John@example.com"/>
             </InputGroup>
         </Col>      
       </Row>

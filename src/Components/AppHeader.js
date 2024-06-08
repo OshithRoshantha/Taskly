@@ -64,7 +64,7 @@ export default function AppHeader() {
     </Navbar>
     <Offcanvas show={show} onHide={handleClose} className="bg-dark" style={{width: '18%'}}>
         <Offcanvas.Header >
-          <Offcanvas.Title className='text-info userWelcome'><br/>Hi,<br/>{userName}</Offcanvas.Title>
+          <Offcanvas.Title className='text-info userWelcome'><br/><i class="bi bi-person-fill-check"></i> Hi,<br/>{userName}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>
