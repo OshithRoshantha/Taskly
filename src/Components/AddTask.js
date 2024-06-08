@@ -7,7 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 
-export default function AddTask() {
+export default function AddTask({closeAddTask}) {
     const[dropSelect,setDropSelect]=useState("");
     function handleSelect(eventKey){
         setDropSelect(eventKey);
@@ -32,7 +32,7 @@ export default function AddTask() {
             selected={selectedDate}
             onChange={handleChange}
             dateFormat="dd/MM/yyyy"
-            className="form-control datePick py-1 text-primary "
+            className="form-control datePick py-1 text-primary"
             placeholderText={selectedDate ? selectedDate.toLocaleDateString() :'Due date'}
         />      
        <Dropdown onSelect={handleSelect}>
@@ -48,7 +48,7 @@ export default function AddTask() {
         </div>
        <hr/>
        <div className="buttonContainer pb-3 pe-2 d-flex justify-content-end">
-            <Button variant="info" className='cancelBtn'>Cancel</Button>
+            <Button onClick={closeAddTask} variant="info" className='cancelBtn'>Cancel</Button>
             <Button className='text-info mx-2'>Add Task</Button>
        </div>      
     </div>

@@ -8,7 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Components/AppHeader.css'
 
-export default function AppHeader() {
+export default function AppHeader({showAddTask}) {
   const fName="Oshith";
   const lName="Roshantha";
     const userName= `${fName} ${lName}`;
@@ -68,7 +68,7 @@ export default function AppHeader() {
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>
-          <Button variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
+          <Button onClick={showAddTask} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
           <br/>
           <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
           <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>

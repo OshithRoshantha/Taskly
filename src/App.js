@@ -10,13 +10,12 @@ import AddTask from './Components/AddTask';
 function App() {
   return (
     <div className="App">
-    {/*  <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path='/*' element={<Login/>}></Route>
           <Route path='Dashboard' element={<Dashboard/>}></Route>
         </Routes>
-      </BrowserRouter> */}
-      <AddTask/>
+      </BrowserRouter> 
     </div>
   );
 }
