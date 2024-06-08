@@ -12,34 +12,9 @@ export default function AppHeader({showAddTask}) {
   const fName="Oshith";
   const lName="Roshantha";
     const userName= `${fName} ${lName}`;
-
-    const [time, setTime] = useState(new Date().toLocaleTimeString());
-    const [date, setDate] = useState('');
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    
-        useEffect(() => {
-        const timer = setInterval(() => {
-          setTime(new Date().toLocaleTimeString());
-        }, 1000);
-        return () => clearInterval(timer);
-         }, []);
-        useEffect(() => {
-        const updateDate = () => {
-          const now = new Date();
-          const formattedDate = `${String(now.getDate()).padStart(2, '0')}, ${now.toLocaleString('default', { month: 'long' })}, ${now.getFullYear()}`;
-          setDate(formattedDate);
-        };
-        updateDate();
-        const now = new Date();
-        const millisTillMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0) - now;
-        const timer = setTimeout(() => {
-          updateDate();
-          setInterval(updateDate, 24 * 60 * 60 * 1000);
-        }, millisTillMidnight);
-        return () => clearTimeout(timer);
-        }, []);
   return (
     <div class="HeaderContainer">
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary-dark" bg="dark">
@@ -68,7 +43,7 @@ export default function AppHeader({showAddTask}) {
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>
-          <Button onClick={showAddTask} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
+          <Button onClick={() => { showAddTask(); handleClose(); }} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
           <br/>
           <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
           <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
