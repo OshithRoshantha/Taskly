@@ -1,0 +1,72 @@
+.addContainer{
+    width: 35vw;
+    background-color: white;
+    position: fixed;
+    z-index: 9999;
+    margin-top: 13%;
+    margin-left: 32%;
+    border-radius: 18px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+}
+.taskinputField:focus{
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+}
+.datePick:focus{
+    box-shadow: none;
+}
+.taskinputField{
+    border: none;
+    background-color: transparent;
+    overflow-wrap: break-word;
+}
+.taskName{
+    font-size: 140%;
+    font-weight: bold;
+    height: auto;
+    word-wrap: break-word;
+}
+.description{
+    font-size: 100%;
+}
+.cancelBtn:hover{
+    background-color: rgb(218, 229, 229);
+}
+.dMenu{
+    background-color: white; 
+}
+.dropdowns{
+    display: flex;
+}
+.dropIcon{
+    font-size: 90%;
+}
+.dropBtn:hover,.dropBtn:focus{
+    background-color: transparent;
+}
+.dropMenuIcon{
+    font-size: 90%;
+}
+.high{
+    color: red;
+}
+.low{
+    color: blue;
+}
+.datePick{
+    border-color: #e78a21;
+    width: 8.5vw;
+    color: #e78a21;
+    padding-left: 27%;
+}
+.datePick::placeholder{
+    color: #e78a21;
+}
+.calanderIcon{
+    position: fixed;
+    z-index: 999999;
+    height: 2%;
+    margin-top: 0.7%;
+    margin-left: 0.7%;
+}
