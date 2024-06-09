@@ -1,0 +1,13 @@
+.updateForm{
+    background-color: transparent;
+    position: fixed;
+    z-index: 999999;
+    width: 34vw;
+    height: 28vh;
+    border: 0.5px solid rgb(209, 201, 201);
+    border-radius: 18px;
+}
+.updateButtonContainer{
+    margin-top: 29.8vh;
+    margin-left: 23.8vw;
+}

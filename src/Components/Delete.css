@@ -8,7 +8,9 @@
 }
 .deleteContainer{
     width: 25vw;
-    margin-left: 37.5%;
+    margin-left: 15.5%;
+    position: absolute;
+    z-index: 99999999;
 }
 .deleteIcon{
     margin-left: -94%;

@@ -49,7 +49,7 @@ export default function AddTask({closeAddTask}) {
        <hr/>
        <div className="buttonContainer pb-3 pe-2 d-flex justify-content-end">
             <Button onClick={closeAddTask} variant="info" className='cancelBtn'>Cancel</Button>
-            <Button className='text-info mx-2'>Add Task</Button>
+            <Button onClick={closeAddTask} className='text-info mx-2'>Add Task</Button>
        </div>      
     </div>
   )
