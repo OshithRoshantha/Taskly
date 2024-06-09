@@ -1,0 +1,18 @@
+.todayContainer{
+    width: 50vw;
+    text-align: left;  
+    padding: 2% 5%;
+}
+.dashboardContainer{
+    width: 100vw;
+}
+.todayHeader{
+    font-weight: bold;
+    font-size: 260%;
+}
+.taskCount{
+    font-size: 110%;
+}
+.taskCountIcon{
+    font-size: 100%;
+}

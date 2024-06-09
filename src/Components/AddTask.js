@@ -5,10 +5,18 @@ import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import Discard2 from './Discard2';
 
 
 export default function AddTask({closeAddTask}) {
     const[dropSelect,setDropSelect]=useState("");
+    const[discard2Container,setDiscard2Container]=useState(false);
+    function showDiscard2Container(){
+        setDiscard2Container(true);
+      }
+      function hideDiscard2Container(){
+        setDiscard2Container(false);
+      }
     function handleSelect(eventKey){
         setDropSelect(eventKey);
     }
@@ -18,6 +26,7 @@ export default function AddTask({closeAddTask}) {
     }; 
   return (
     <div className='addContainer'>
+        {discard2Container && <Discard2 hideDiscard2Container={hideDiscard2Container} closeAddTask={closeAddTask}/>}
        <Form className='px-3 py-2'>
             <Form.Group controlId="taskName">
                 <Form.Control type="text" className='taskinputField taskName' required placeholder="Task Name"/>
@@ -48,7 +57,9 @@ export default function AddTask({closeAddTask}) {
         </div>
        <hr/>
        <div className="buttonContainer pb-3 pe-2 d-flex justify-content-end">
-            <Button onClick={closeAddTask} variant="info" className='cancelBtn'>Cancel</Button>
+            <Button onClick={() => {
+                showDiscard2Container();
+             }} variant="info" className='cancelBtn'>Cancel</Button>
             <Button onClick={closeAddTask} className='text-info mx-2'>Add Task</Button>
        </div>      
     </div>

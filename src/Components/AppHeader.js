@@ -8,7 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Components/AppHeader.css'
 
-export default function AppHeader({showAddTask}) {
+export default function AppHeader({showAddTask,showToday,hideToday,showUpcoming,hideUpcoming}) {
   const fName="Oshith";
   const lName="Roshantha";
     const userName= `${fName} ${lName}`;
@@ -46,8 +46,8 @@ export default function AppHeader({showAddTask}) {
           <Button onClick={() => { showAddTask(); handleClose(); }} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
           <br/>
           <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
-          <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
-          <Button className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-plus canavaIcon"></i>Upcoming</Button>
+          <Button onClick={() => {showToday() ; handleClose(); hideUpcoming();}} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
+          <Button onClick={() => {showUpcoming() ; handleClose(); hideToday();}} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-plus canavaIcon"></i>Upcoming</Button>
         </Offcanvas.Body>
     </Offcanvas>
     </div>
