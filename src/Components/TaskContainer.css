@@ -1,10 +1,7 @@
 .todayContainer{
     width: 50vw;
-    text-align: left;  
-    padding: 2% 5%;
-}
-.dashboardContainer{
-    width: 100vw;
+    text-align: left;
+    padding: 6% 0%;
 }
 .todayHeader{
     font-weight: bold;

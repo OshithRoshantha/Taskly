@@ -1,0 +1,21 @@
+.emptyContainer{
+    margin-left: 20%;
+    margin-top: 2%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    flex-direction: column;
+}
+.emptyIcon{
+    width: 68%;
+}
+.emptyText{
+    font-size: 100%;
+    font-weight: bold;
+}
+.emptyAddTask{
+    color: black;
+    font-size: 90%;
+}
