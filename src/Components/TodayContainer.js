@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './TaskContainer.css'
 import EmptyToday from './EmptyToday';
+import TaskPreview from './TaskPreview';
 
 export default function TodayContainer({showAddTask}) {
     const[todayTaskCount,setTodayTaskCount]=useState(0);
@@ -18,7 +19,7 @@ export default function TodayContainer({showAddTask}) {
             <div className="todayHeader">Today</div>
             <div className="taskCount"><i class="bi bi-bookmark-check-fill taskCountIcon"></i> {todayTaskCount} tasks</div>
             <hr/>
-            {visibleTodayEmpty && <EmptyToday showAddTask={showAddTask}/>}         
+            {visibleTodayEmpty && <EmptyToday showAddTask={showAddTask}/>}
         </div>
     </div>  
   )

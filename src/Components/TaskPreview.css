@@ -1,0 +1,21 @@
+.taskCard{
+    width: 80%;
+    cursor: pointer;
+    margin-bottom: 2%;
+}
+.cardHeader{
+    display: flex;
+}
+.cardHeaderR{
+    margin-left: 63%;
+}
+.taskIcon{
+    color: black;
+    font-size: 80%;
+}
+.hoverCard:hover{
+    background-color: #d7c9b9;
+}
+.hoverCard{
+    background-color: #b2b75b;
+}
