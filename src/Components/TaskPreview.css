@@ -10,12 +10,12 @@
     margin-left: 63%;
 }
 .taskIcon{
-    color: black;
+    color: white;
     font-size: 80%;
 }
 .hoverCard:hover{
-    background-color: #d7c9b9;
+    background-color: #3c8f78;
 }
 .hoverCard{
-    background-color: #b2b75b;
+    background-color: #2e715e;
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EmptyUpcoming from './EmptyUpcoming';
 
 export default function UpcomingContainer({showAddTask}) {
-    const[upcomingTaskCount,setUpcomingTaskCount]=useState(1);
+    const[upcomingTaskCount,setUpcomingTaskCount]=useState(0);
     const[visibleUpcomingEmpty,setVisisbleUpcomingEmpty]=useState(false)
     useEffect(() => {
       if (upcomingTaskCount === 0) {

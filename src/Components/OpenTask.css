@@ -21,3 +21,10 @@
     z-index: 999999;
     position: relative;
 }
+.closeBtn{
+    position: absolute;
+    margin-left: 94%;
+}
+.closeIcon{
+    color: black;
+}

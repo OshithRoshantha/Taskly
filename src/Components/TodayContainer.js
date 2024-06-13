@@ -3,8 +3,8 @@ import './TaskContainer.css'
 import EmptyToday from './EmptyToday';
 import TaskPreview from './TaskPreview';
 
-export default function TodayContainer({showAddTask}) {
-    const[todayTaskCount,setTodayTaskCount]=useState(0);
+export default function TodayContainer({showAddTask,showOpenTask}) {
+    const[todayTaskCount,setTodayTaskCount]=useState(1);
     const[visibleTodayEmpty,setVisisbleTodayEmpty]=useState(false)
     useEffect(() => {
       if (todayTaskCount === 0) {
@@ -20,6 +20,7 @@ export default function TodayContainer({showAddTask}) {
             <div className="taskCount"><i class="bi bi-bookmark-check-fill taskCountIcon"></i> {todayTaskCount} tasks</div>
             <hr/>
             {visibleTodayEmpty && <EmptyToday showAddTask={showAddTask}/>}
+            <TaskPreview showOpenTask={showOpenTask}/>
         </div>
     </div>  
   )

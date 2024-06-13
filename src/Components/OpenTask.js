@@ -10,11 +10,11 @@ import Delete from './Delete';
 import Discard from './Discard';
 
 export default function OpenTask({closeOpenTask}) {
-    const taskTitle="Test Title"; //from API
-    const description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci harum accusamus vel, laboriosam soluta repudiandae ad obcaecati rem optio?"; 
-    //from API
-    const priotity="High"; //from API
-    const orginalDueDate="09/06/2024"; //from API
+    const[taskTitle,setTaskTitle]=useState('Test Title');
+    const[description,setDescription]=useState('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci harum accusamus vel, laboriosam soluta repudiandae ad obcaecati rem optio?');
+    const[priotity,setPriotity]=useState('Medium');
+    const[orginalDueDate,setOrginalDueDate]=useState('10/06/2024');
+
     const[dropSelect,setDropSelect]=useState(priotity);
     const taskInputRef = useRef(null);
     const descriptionInputRef = useRef(null);
@@ -79,6 +79,7 @@ export default function OpenTask({closeOpenTask}) {
        {deleteContainer && <Delete hideDeleteContainer={hideDeleteContainer} closeOpenTask={closeOpenTask} taskTitle={taskTitle}/>}
        {updateConatiner && <UpdateForm hideUpdateConatiner={hideUpdateConatiner} showDiscardContainer={showDiscardContainer} save={save}/>}
        <Form className='px-0 py-0 formInputs'>
+            <div className="closeBtn" onClick={closeOpenTask}><i class="bi bi-x-circle closeIcon"></i></div>
             <Form.Group controlId="taskName">
                 <Form.Control type="text" className='taskinputField taskName openTaskTitle' onChange={showUpdateConatiner} required placeholder={taskTitle} ref={taskInputRef}/>
             </Form.Group>

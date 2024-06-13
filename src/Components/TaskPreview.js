@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import './TaskPreview.css'
 import Card from 'react-bootstrap/Card';
 
-export default function TaskPreview() {
-    const[taskTitle,setTaskTitle]=useState('task name');
-    const[taskDescription,setTaskDescription]=useState('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+export default function TaskPreview({showOpenTask}) {
+    const[taskTitle,setTaskTitle]=useState('Test Title');
+    const[taskDescription,setTaskDescription]=useState('Lorem, ipsum dolor sit amet consectetur adipisicing elit. Distinctio adipisci harum accusamus vel, laboriosam soluta repudiandae ad obcaecati rem optio?');
     const[prior,setPrior]=useState('Medium');
     const[dueDate,setDueDate]=useState('10/06/2024');
   return (
-    <div className='taskCard'>
-    <Card className='hoverCard'>
+    <div className='taskCard' onClick={showOpenTask}>
+    <Card className='hoverCard text-info'>
       <Card.Header>  
         <div className="cardHeader">
             <div className="cardHeaderL"><i class="bi bi-signpost taskIcon"></i> {prior} priority</div>
