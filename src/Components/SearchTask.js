@@ -6,7 +6,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-export default function SearchTask({hideSearch}) {
+export default function SearchTask({hideSearch,hideOpacity}) {
     const[dropSelect,setDropSelect]=useState("");
     function handleSelect(eventKey){
         setDropSelect(eventKey);
@@ -18,7 +18,7 @@ export default function SearchTask({hideSearch}) {
   return (
     <div className='addContainer searchContainer'>
         <img className='searchIcon' src='../searchIcon.png'/> 
-        <img onClick={hideSearch} className='closeIconSearch' src='../closeIcon.png'/> 
+        <img onClick={() => {hideSearch();hideOpacity()}} className='closeIconSearch' src='../closeIcon.png'/> 
         <Form>
             <Form.Control className='searchTitle taskinputField' type="text" placeholder="Task title..." required />
         </Form>
@@ -44,7 +44,7 @@ export default function SearchTask({hideSearch}) {
                 </Dropdown.Menu>
                 </Dropdown>
             </div>           
-            <Button onClick={() => {hideSearch()}} variant="outline-dark" className='sortSearch'>Search</Button>
+            <Button onClick={() => {hideSearch();hideOpacity()}} variant="outline-dark" className='sortSearch'>Search</Button>
         </div>
     </div>
   )

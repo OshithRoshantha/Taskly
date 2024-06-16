@@ -8,7 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import '../Components/AppHeader.css'
 
-export default function AppHeader({showAddTask,showToday,hideToday,showUpcoming,hideUpcoming,showSearch,closeAddTask,hideSearch}) {
+export default function AppHeader({showAddTask,showToday,hideToday,showUpcoming,hideUpcoming,showSearch,closeAddTask,hideSearch,showOpacity,hideOpacity}) {
   const fName="Oshith";
   const lName="Roshantha";
     const userName= `${fName} ${lName}`;
@@ -28,7 +28,7 @@ export default function AppHeader({showAddTask,showToday,hideToday,showUpcoming,
           <Nav className='headerRight'>
               <NavDropdown title={<i className="bi bi-gear gearIcon"></i>} id="basic-nav-dropdown" menuVariant="dark">
               <div className="dropdownText">
-                 <i class="bi bi-person-circle userIcon"></i><br/>{userName},
+                 <i class="bi bi-person-circle userIcon"></i><br/>{userName}
               </div>
               <br/>
               <NavDropdown.Item className='logOut px-6' href='/'><i class="bi bi-box-arrow-left"></i> Log Out</NavDropdown.Item>
@@ -43,9 +43,9 @@ export default function AppHeader({showAddTask,showToday,hideToday,showUpcoming,
         </Offcanvas.Header>
         <Offcanvas.Body >
           <br/>
-          <Button onClick={() => { showAddTask(); handleClose();hideSearch() }} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
+          <Button onClick={() => { showAddTask(); handleClose();hideSearch();showOpacity() }} variant='dark' className='text' style={{width: '100%',textAlign: 'left'}}><i class="bi bi-plus-circle-fill canavaIconAdd"></i>Add Task</Button>
           <br/>
-          <Button onClick={() => { showSearch(); handleClose();closeAddTask() }} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
+          <Button onClick={() => { showSearch(); handleClose();closeAddTask();showOpacity() }} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-search canavaIcon"></i>Search</Button>
           <Button onClick={() => {showToday() ; handleClose(); hideUpcoming();}} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-day canavaIcon"></i>Today</Button>
           <Button onClick={() => {showUpcoming() ; handleClose(); hideToday();}} className='canavaBtn' variant='dark'style={{width: '100%',textAlign: 'left'}}><i class="bi bi-calendar-plus canavaIcon"></i>Upcoming</Button>
         </Offcanvas.Body>

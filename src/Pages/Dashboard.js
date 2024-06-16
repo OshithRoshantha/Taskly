@@ -7,6 +7,7 @@ import UpcomingContainer from '../Components/UpcomingContainer';
 import Calender from '../Components/Calender';
 import './Dashboard.css'
 import SearchTask from '../Components/SearchTask';
+import BackOpacity from '../Components/BackOpacity';
 
 
 export default function Dashboard() {
@@ -15,6 +16,13 @@ export default function Dashboard() {
   const[visibleToday,setVisibleToday]=useState(true);
   const[visibleUpcoming,setVisibleUpcoming]=useState(false);
   const[visibleSearch,setVisibleSearch]=useState(false);
+  const[visibleOpacity,setVisibleOpacity]=useState(false);
+  function showOpacity(){
+    setVisibleOpacity(true);
+  }
+  function hideOpacity(){
+    setVisibleOpacity(false);
+  }
   function closeAddTask(){
     setAddTaskVisible(false);
   }
@@ -47,16 +55,16 @@ export default function Dashboard() {
   }
   return (
     <div> 
-        <AppHeader closeAddTask={closeAddTask} hideSearch={hideSearch} showSearch={showSearch} showAddTask={showAddTask} showToday={showToday} hideToday={hideToday} showUpcoming={showUpcoming} hideUpcoming={hideUpcoming}/>
-        {addTaskVisible && <AddTask closeAddTask={closeAddTask}/>}
-        {openTaskVisible && <OpenTask closeOpenTask={closeOpenTask}/>}
-        {visibleSearch &&  <SearchTask hideSearch={hideSearch}/>}
+        <AppHeader showOpacity={showOpacity} hideOpacity={hideOpacity} closeAddTask={closeAddTask} hideSearch={hideSearch} showSearch={showSearch} showAddTask={showAddTask} showToday={showToday} hideToday={hideToday} showUpcoming={showUpcoming} hideUpcoming={hideUpcoming}/>
+        {visibleOpacity && <BackOpacity/>} 
+        {addTaskVisible && <AddTask closeAddTask={closeAddTask} hideOpacity={hideOpacity}/>}
+        {openTaskVisible && <OpenTask closeOpenTask={closeOpenTask} hideOpacity={hideOpacity}/>}
+        {visibleSearch &&  <SearchTask hideOpacity={hideOpacity} hideSearch={hideSearch}/>}
         <div className="calender_task">
             <Calender/>
-            {visibleToday && <TodayContainer showAddTask={showAddTask} showOpenTask={showOpenTask}/>}
-            {visibleUpcoming && <UpcomingContainer showAddTask={showAddTask} showOpenTask={showOpenTask}/>} 
-        </div>
-           
+            {visibleToday && <TodayContainer showAddTask={showAddTask} showOpenTask={showOpenTask} showOpacity={showOpacity}/>}
+            {visibleUpcoming && <UpcomingContainer showAddTask={showAddTask} showOpenTask={showOpenTask} showOpacity={showOpacity}/>} 
+        </div>        
     </div>
   )
 }

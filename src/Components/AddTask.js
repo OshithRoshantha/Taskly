@@ -8,7 +8,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Discard2 from './Discard2';
 
 
-export default function AddTask({closeAddTask}) {
+export default function AddTask({closeAddTask,hideOpacity}) {
     const[dropSelect,setDropSelect]=useState("");
     const[discard2Container,setDiscard2Container]=useState(false);
     function showDiscard2Container(){
@@ -26,7 +26,7 @@ export default function AddTask({closeAddTask}) {
     }; 
   return (
     <div className='addContainer'>
-        {discard2Container && <Discard2 hideDiscard2Container={hideDiscard2Container} closeAddTask={closeAddTask}/>}
+        {discard2Container && <Discard2 hideOpacity={hideOpacity} hideDiscard2Container={hideDiscard2Container} closeAddTask={closeAddTask}/>}
        <Form className='px-3 py-2'>
             <Form.Group controlId="taskName">
                 <Form.Control type="text" className='taskinputField taskName' required placeholder="Task Name"/>
@@ -60,7 +60,7 @@ export default function AddTask({closeAddTask}) {
             <Button onClick={() => {
                 showDiscard2Container();
              }} variant="info" className='cancelBtn'>Cancel</Button>
-            <Button onClick={closeAddTask} className='text-info mx-2'>Add Task</Button>
+            <Button onClick={() => { closeAddTask();hideOpacity()}} className='text-info mx-2'>Add Task</Button>
        </div>      
     </div>
   )
