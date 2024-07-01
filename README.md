@@ -5,4 +5,4 @@
 ## 🚧 Project Status
 
 **Note: This project is currently under construction.**  
-We are actively working on this project and it is not yet ready for production use. Stay tuned for updates!
+Actively working on this project and it is not yet ready for production use. Stay tuned for updates!
