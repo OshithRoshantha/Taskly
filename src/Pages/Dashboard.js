@@ -4,7 +4,6 @@ import AddTask from '../Components/AddTask';
 import OpenTask from '../Components/OpenTask';
 import TodayContainer from '../Components/TodayContainer';
 import UpcomingContainer from '../Components/UpcomingContainer';
-import Calender from '../Components/Calender';
 import './Dashboard.css'
 import SearchTask from '../Components/SearchTask';
 import BackOpacity from '../Components/BackOpacity';
@@ -61,7 +60,6 @@ export default function Dashboard() {
         {openTaskVisible && <OpenTask closeOpenTask={closeOpenTask} hideOpacity={hideOpacity}/>}
         {visibleSearch &&  <SearchTask hideOpacity={hideOpacity} hideSearch={hideSearch}/>}
         <div className="calender_task">
-            <Calender/>
             {visibleToday && <TodayContainer showAddTask={showAddTask} showOpenTask={showOpenTask} showOpacity={showOpacity}/>}
             {visibleUpcoming && <UpcomingContainer showAddTask={showAddTask} showOpenTask={showOpenTask} showOpacity={showOpacity}/>} 
         </div>        
