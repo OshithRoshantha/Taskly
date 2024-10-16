@@ -1,0 +1,38 @@
+.main-layout{
+    width: 100vw;
+    height: 100vh;
+    background-color: #DEE2E5;
+}
+.head-strip{
+    width: 100vw;
+    background-color: white;
+    height: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.dashboard-item1,.dashboard-item2,.dashboard-item3,.dashboard-item4{
+    font-weight: 500;
+    text-align: left;
+    padding: 0% 1.5%;
+    padding-top: 5%;
+    font-size: medium;
+    width: 24.5%;
+    height: 85vh;
+}
+.head-text{
+    display: flex;
+    column-gap: 70%;
+}
+.addBtn{
+    cursor: pointer;
+}
+.addBtn:hover{
+    color: brown;
+}
