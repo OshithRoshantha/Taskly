@@ -1,14 +1,22 @@
 import React from 'react'
 import './Styles/Dashboard.css'
 import CardPreview from '../Components/CardPreview'
+import Add from '../Components/Add'
 
 export default function Dashboard() {
+    const [addTask, setAddTask] = React.useState(false);
+
+    function addTaskHandler(){
+        setAddTask(true);
+    }
+
     var title="Test Titlesdgsdsdfsdfsjkfsdjkfnsjfnakjlfjknjkfaejkgjkerfgnjekgerge";
     var description="sdffdbfjhfbfksnfskdfndfgdgdfffffffffffffffffffffffffsdfsffsfdsfsdfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffskfsndfkjsnfdjfskdf";
     var priority="MID";
     var date=12/12/2021;
   return (
     <div className='main-layout'>
+        {addTask && <Add/>}
         <div className='head-strip h4 mb-0'>Dashboard</div>
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
@@ -26,8 +34,9 @@ export default function Dashboard() {
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
                 </div>
-                <p className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
+                <p onClick={addTaskHandler} className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
             <div className='dashboard-item2'>
                 <div className='head-text head-text2'>
@@ -43,7 +52,7 @@ export default function Dashboard() {
                 <div className='item-inner'>
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
                 </div>  
-                <p className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>       
+                <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>       
             </div>
             <div className='dashboard-item3'>
                 <div className='head-text'>
@@ -60,7 +69,7 @@ export default function Dashboard() {
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
                 </div>
-                <p className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
+                <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
             <div className='dashboard-item4'>
                 <div className='head-text'><p className='b'>Notes & References</p></div>
