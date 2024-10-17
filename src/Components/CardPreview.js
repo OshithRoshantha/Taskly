@@ -21,7 +21,7 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
     }
 
     function hideUpdateModal(){
-        setShowUpdate(false);
+        setShowUpdate(false)
     }
 
     function showDropDownModel(){
@@ -62,27 +62,31 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
     }, [status]);
 
   return (
-    <div className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
-        {deleteModal && <Delete taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleDelete={handleDelete}/>}
-        {showUpdate && <Update taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc} hideUpdateModal={hideUpdateModal}/>}
-        <div className='card-header'>
-            <h5 className='card-title'>{taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle}</h5>
+    <div>
+        {deleteModal && <Delete taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} hideUpdateModal={hideUpdateModal} handleDelete={handleDelete}/>} 
+        <div className='toggle-dropDown'>
             <div className='card-toggle' onClick={showDropDownModel}><i class="bi bi-three-dots-vertical"></i></div>
             {showDropDown && <div className='drop-down'>
                 {dropDownItem1 && <div onClick={hideDropDownModel} className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
                 {dropDownItem2 && <div onClick={hideDropDownModel}  className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
                 {dropDownItem3 && <div onClick={hideDropDownModel}  className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
                 <div onClick={() => {hideDropDownModel();handleDelete()}}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
-            </div>}
+            </div>}  
         </div>
-        <p className='card-description display-4'>{taskDesc.length>148?`${taskDesc.slice(0,148)}...`:taskDesc}</p>
-        <div className='card-bottom'>
-            <div className={`card-priority ${taskPriority}`}><i class="bi bi-bullseye"></i>&nbsp;{taskPriority}</div>
-            <div className='card-date'>
-                <b>{day}</b><span className='month'>{month}</span>
+        <div className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
+            {showUpdate && <Update hideUpdateModal={hideUpdateModal} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc} hideUpdateModal={hideUpdateModal}/>}
+            <div className='card-header'>
+                <h5 className='card-title'>{taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle}</h5>
+                <div className='card-toggle hide-toggle'><i class="bi bi-three-dots-vertical"></i></div>
             </div>
-        </div>
-
+            <p className='card-description display-4'>{taskDesc.length>148?`${taskDesc.slice(0,148)}...`:taskDesc}</p>
+            <div className='card-bottom'>
+                <div className={`card-priority ${taskPriority}`}><i class="bi bi-bullseye"></i>&nbsp;{taskPriority}</div>
+                <div className='card-date'>
+                    <b>{day}</b><span className='month'>{month}</span>
+                </div>
+            </div>
+        </div>        
     </div>
   )
 }

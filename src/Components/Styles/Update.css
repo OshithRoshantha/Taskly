@@ -4,3 +4,25 @@
 .update-title::placeholder,.update-desc::placeholder{
     color: black;
 }
+.update-container{
+    z-index: 9;
+    width: 30%;
+    height: 50%;
+    padding-top: 1% ;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.fill-area2{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+}
+.update-btn{
+    color: white;
+}

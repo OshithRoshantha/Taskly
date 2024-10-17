@@ -35,8 +35,8 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#0000FF'} taskTitle={'title1'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#0000FF'} taskTitle={'title2'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                     <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                     <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                 </div>
