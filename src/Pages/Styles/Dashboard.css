@@ -26,6 +26,12 @@
     width: 24.5%;
     height: 85vh;
 }
+.item1-inner{
+    width: 100%;
+    height: 68.2vh;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+}
 .dashboard-item4{
     width: 18%;
 }
