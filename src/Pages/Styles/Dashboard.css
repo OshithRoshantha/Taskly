@@ -26,6 +26,9 @@
     width: 24.5%;
     height: 85vh;
 }
+.dashboard-item4{
+    width: 18%;
+}
 .head-text{
     display: flex;
     column-gap: 70%;

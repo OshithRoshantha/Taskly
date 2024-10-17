@@ -1,0 +1,82 @@
+.card-layout{
+    background-color: blue;
+    border-radius: 15px;
+    width: 95%;
+    height: 28%;
+    margin-left: 2%;
+    margin-bottom: 5%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    padding: 5%;
+    color: white;
+}
+.card-title{
+    font-size: large;
+}
+.card-description{
+    margin-top: 3%;
+    margin-left: 3%;
+    font-size: smaller;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+.card-bottom{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    column-gap: 60%;
+}
+.card-date{
+    width: 45px;
+    height: 45px;
+    font-size: 150%;
+    background-color: white;
+    border-radius: 5px;
+    margin-top: -8%;
+    position: relative;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 17px;
+}
+.month{
+    font-size: 50%;
+}
+.card-priority{
+    background-color: white;
+    margin-top: -0.5%;
+    border-radius: 3px;
+    height: 20px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 80%;
+}
+.HIGH{
+    color: red;
+}
+.MID{
+    color: orange;
+}
+.LOW{
+    color: green;
+}
+.card-toggle{
+    position: absolute;
+    z-index: 99;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-top: -6.7%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-toggle:hover{
+    background-color: rgba(222, 226, 229, 0.4);
+}
