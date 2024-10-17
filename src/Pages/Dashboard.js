@@ -13,20 +13,30 @@ export default function Dashboard() {
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
                 <div className='head-text'><p className='b'>To do</p><i class="bi bi-plus-lg addBtn"></i></div>
-                <div className='item1-inner'>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                <div className='item-inner'>
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
                 </div>
             </div>
             <div className='dashboard-item2'>
                 <div className='head-text'><p className='b'>In progress</p><i class="bi bi-plus-lg addBtn"></i></div>
-                <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/>               
+                <div className='item-inner'>
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                </div>         
             </div>
             <div className='dashboard-item3'>
                 <div className='head-text'><p className='b'>Done</p><i class="bi bi-plus-lg addBtn"></i></div>
-                <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/>
+                <div className='item-inner'>
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                </div>
             </div>
             <div className='dashboard-item4'>
                 <div className='head-text'><p className='b'>Notes & References</p></div>
