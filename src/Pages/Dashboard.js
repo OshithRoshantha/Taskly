@@ -1,6 +1,5 @@
 import React from 'react'
 import './Styles/Dashboard.css'
-import ÇardPreview from '../Components/CardPreview'
 import CardPreview from '../Components/CardPreview'
 
 export default function Dashboard() {
@@ -14,7 +13,7 @@ export default function Dashboard() {
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
                 <div className='head-text'><p className='b'>To do</p><i class="bi bi-plus-lg addBtn"></i></div>
-                <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/>
+                <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
             </div>
             <div className='dashboard-item2'>
                 <div className='head-text'><p className='b'>In progress</p><i class="bi bi-plus-lg addBtn"></i></div>               

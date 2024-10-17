@@ -7,12 +7,8 @@ export default function CardPreview({title, description, priority, date, status}
     const[dropDownItem2,setDropDownItem2]=React.useState(true);
     const[dropDownItem3,setDropDownItem3]=React.useState(true);
 
-    function handleExpand1(){
-        setIsExpanded(true);
-    }
-
-    function handleExpand2(){
-        setIsExpanded(false);
+    function handleExpand(){
+        setIsExpanded(!isExpanded);
     }
 
     useEffect(() => {
@@ -32,17 +28,17 @@ export default function CardPreview({title, description, priority, date, status}
     }, [status]);
 
   return (
-    <div className='card-layout'>
+    <div className='card-layout' onClick={handleExpand}>
         <h5 className='card-title'>{title.length>27?`${title.slice(0,27)}...`:title}</h5>
         <p className='card-description display-4'>{description.length>148?`${description.slice(0,148)}...`:description}</p>
         <div className='card-bottom'>
             {isExpanded && <div className='drop-down'>
-                {dropDownItem1 && <div onClick={handleExpand2} className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
-                {dropDownItem2 && <div onClick={handleExpand2}  className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
-                {dropDownItem3 && <div onClick={handleExpand2}  className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
-                <div onClick={handleExpand2}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
+                {dropDownItem1 && <div onClick={handleExpand} className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
+                {dropDownItem2 && <div onClick={handleExpand}  className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
+                {dropDownItem3 && <div onClick={handleExpand}  className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
+                <div onClick={handleExpand}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
             </div>}
-            <div className='card-toggle' onClick={handleExpand1}><i class="bi bi-three-dots-vertical"></i></div>
+            <div className='card-toggle' onClick={handleExpand}><i class="bi bi-three-dots-vertical"></i></div>
             <div className={`card-priority ${priority}`}><i class="bi bi-bullseye"></i>&nbsp;{priority}</div>
             <div className='card-date'>
                 <b>17</b><span className='month'>DEC</span>
