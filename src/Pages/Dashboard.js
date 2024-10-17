@@ -14,7 +14,7 @@ export default function Dashboard() {
             <div className='dashboard-item1'>
                 <div className='head-text'><p className='b'>To do</p><i class="bi bi-plus-lg addBtn"></i></div>
                 <div className='item-inner'>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
                     <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
                 </div>

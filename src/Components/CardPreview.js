@@ -43,8 +43,7 @@ export default function CardPreview({title, description, priority, date, status}
     }, [status]);
 
   return (
-    <div className='card-layout' onClick={closeExpand}>
-        <div className={`${remove}`}></div>
+    <div className={` card-layout ${remove}`} onClick={closeExpand}>
         {deleteModal && <Delete taskTitle={title.length>27?`${title.slice(0,27)}...`:title} handleDelete={handleDelete}/>}
         <div className='card-header'>
             <h5 className='card-title'>{title.length>27?`${title.slice(0,27)}...`:title}</h5>
