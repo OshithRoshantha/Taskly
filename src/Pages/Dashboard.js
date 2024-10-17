@@ -14,7 +14,7 @@ export default function Dashboard() {
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
                 <div className='head-text'><p className='b'>To do</p><i class="bi bi-plus-lg addBtn"></i></div>
-                <CardPreview title={title} description={description} priority={priority} date={date}/>
+                <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/>
             </div>
             <div className='dashboard-item2'>
                 <div className='head-text'><p className='b'>In progress</p><i class="bi bi-plus-lg addBtn"></i></div>               

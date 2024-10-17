@@ -80,3 +80,32 @@
 .card-toggle:hover{
     background-color: rgba(222, 226, 229, 0.4);
 }
+.drop-down{
+    background-color: white;
+    color: black;
+    position: absolute;
+    z-index: 999;
+    width: 9%;
+    height: 16%;
+    margin-top: -6.5%;
+    border-radius: 10px;
+}
+.drop-down-item{
+    font-size: 85%;
+    font-weight: 500;
+    padding-right: 8%;
+    width: 100%;
+    height: 34%;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+.drop-down-item:hover{
+    background-color: rgba(222, 226, 229,0.5);
+}
+.delete:hover{
+    background-color: rgb(255, 0, 0,0.8);
+    color: white;
+}
