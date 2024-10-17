@@ -9,6 +9,9 @@ export default function Dashboard() {
     function addTaskHandler(){
         setAddTask(true);
     }
+    function closeAddTask(){
+        setAddTask(false);
+    }
 
     var title="Test Titlesdgsdsdfsdfsjkfsdjkfnsjfnakjlfjknjkfaejkgjkerfgnjekgerge";
     var description="sdffdbfjhfbfksnfskdfndfgdgdfffffffffffffffffffffffffsdfsffsfdsfsdfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffskfsndfkjsnfdjfskdf";
@@ -16,7 +19,7 @@ export default function Dashboard() {
     var date=12/12/2021;
   return (
     <div className='main-layout'>
-        {addTask && <Add/>}
+        {addTask && <Add closeAddTask={closeAddTask}/>}
         <div className='head-strip h4 mb-0'>Dashboard</div>
         <div className='dashboard-container'>
             <div className='dashboard-item1'>

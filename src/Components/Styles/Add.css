@@ -46,10 +46,12 @@ input:focus,textarea:focus{
 .date-picker{
     background-color: #e78a21;
     width: 60%;
+    padding: 2.5% 0%;
     border-radius: 15px;
     color: white;
     font-size: 90%;
     cursor: pointer;
+    text-align: center;
 }
 .date-picker:focus{
     background-color: #e78a21;
@@ -58,6 +60,27 @@ input:focus,textarea:focus{
 .date-picker::placeholder{
     color: white;
 }
+.task-priority{
+    margin-left: -5%;
+    font-size: 90%;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: red;
+    padding: 1% 0%;
+    width: 18%;
+    text-align: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
+.task-priority option {
+    background-color: white; 
+    color: black; 
+}
 .save-btn{
     color: white;
+}
+.color-picker{
+    margin-left: 3%;
 }
