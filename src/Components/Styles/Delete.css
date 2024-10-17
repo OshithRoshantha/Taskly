@@ -1,0 +1,28 @@
+.deleteHead{
+    font-size: 100%;
+    text-align: left;
+}
+.deleteSub{
+    font-size: 80%;
+    text-align: left;
+}
+.deleteContainer{
+    width: 25vw;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 999;
+    color: black;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.fill-area{
+    z-index: 99;
+    top: 0%;
+    left: 0%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
