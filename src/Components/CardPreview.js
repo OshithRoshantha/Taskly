@@ -34,7 +34,7 @@ export default function CardPreview({title, description, priority, date, status}
     }, [status]);
 
   return (
-    <div className='card-layout'>
+    <div className={`card-layout ${status}`}>
         {deleteModal && <Delete taskTitle={title.length>27?`${title.slice(0,27)}...`:title} handleDelete={handleDelete}/>}
         <h5 className='card-title'>{title.length>27?`${title.slice(0,27)}...`:title}</h5>
         <p className='card-description display-4'>{description.length>148?`${description.slice(0,148)}...`:description}</p>
