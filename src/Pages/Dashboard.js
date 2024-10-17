@@ -16,7 +16,8 @@ export default function Dashboard() {
     var title="Test Titlesdgsdsdfsdfsjkfsdjkfnsjfnakjlfjknjkfaejkgjkerfgnjekgerge";
     var description="sdffdbfjhfbfksnfskdfndfgdgdfffffffffffffffffffffffffsdfsffsfdsfsdfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffskfsndfkjsnfdjfskdf";
     var priority="MID";
-    var date=12/12/2021;
+    const date = new Date();
+    
   return (
     <div className='main-layout'>
         {addTask && <Add closeAddTask={closeAddTask}/>}
@@ -34,10 +35,10 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"To do"}/>
+                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                 </div>
                 <p onClick={addTaskHandler} className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
@@ -53,7 +54,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"In progress"}/> 
+                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"In progress"}/> 
                 </div>  
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>       
             </div>
@@ -69,8 +70,8 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
-                    <CardPreview title={title} description={description} priority={priority} date={date} status={"Done"}/> 
+                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
+                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
                 </div>
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>

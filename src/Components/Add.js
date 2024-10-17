@@ -11,18 +11,6 @@ export default function Add({closeAddTask}) {
     const [selectedDate, setSelectedDate] = useState(tomorrow);
     const [color, setColor] = useState('#FFD700');
 
-    function handlePriority(e) {
-        if (e.target.value === '1') {
-            e.target.style.backgroundColor = 'green';
-        } 
-        else if (e.target.value === '2') {
-            e.target.style.backgroundColor = 'orange';
-        }   
-        else {
-            e.target.style.backgroundColor = 'red';
-        }
-    }
-
     const handleColorChange = (color) => {
       setColor(color.hex); 
     };
@@ -38,16 +26,16 @@ export default function Add({closeAddTask}) {
                     onChange={(date) => setSelectedDate(date)}
                     placeholderText='Due date'
                 />
-                <select className='task-priority' onChange={handlePriority}>
-                    <option value='1'>Low</option>
-                    <option value='2'>Medium</option>
-                    <option value='3' selected>High</option>
+                <select className='task-priority'>
+                    <option value='LOW'>Low</option>
+                    <option value='MID'>Medium</option>
+                    <option value='HIGH' selected>High</option>
                 </select>
                 <CirclePicker
                     className='color-picker'
                     color={color}
                     onChangeComplete={handleColorChange}
-                    colors={['#007BFF', '#FF5733','#FFD700','#6F42C1']}
+                    colors={['#0000FF', '#FF0000','#FFD700','#800080']}
                 />
             </div>
             <div className='btn-tray2'>

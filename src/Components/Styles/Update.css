@@ -1,0 +1,6 @@
+.btn-tray3{
+    padding-left: 7%;
+}
+.update-title::placeholder,.update-desc::placeholder{
+    color: black;
+}
