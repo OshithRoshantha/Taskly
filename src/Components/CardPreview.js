@@ -22,6 +22,7 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
 
     function hideUpdateModal(){
         setShowUpdate(false)
+        console.log('hide update modal');
     }
 
     function showDropDownModel(){

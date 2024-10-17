@@ -5,7 +5,7 @@
     color: black;
 }
 .update-container{
-    z-index: 9;
+    z-index: 99;
     width: 30%;
     height: 50%;
     padding-top: 1% ;

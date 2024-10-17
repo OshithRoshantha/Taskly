@@ -77,7 +77,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                 </div>
                 <div className='btn-tray2'>
                     <button onClick={showDiscardModal} type="button" className="btn btn-info">Cancel</button>
-                    {showUpdateBtn && <button onClick={hideDiscardModal} type="button" className="btn btn-primary update-btn">Update</button>}
+                    {showUpdateBtn && <button onClick={hideUpdateModal} type="button" className="btn btn-primary update-btn">Update</button>}
                     <button onClick={handleDelete} type="button" className="btn btn-danger save-btn"><i class="bi bi-trash deleteIcon"></i></button>
                 </div>
             </div>
