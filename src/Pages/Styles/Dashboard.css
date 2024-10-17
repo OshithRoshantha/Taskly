@@ -37,7 +37,10 @@
 }
 .head-text{
     display: flex;
-    column-gap: 70%;
+    column-gap: 50%;
+}
+.head-text2{
+    column-gap: 40%;  
 }
 .addBtn{
     cursor: pointer;
@@ -53,4 +56,26 @@
 }
 .add-task:hover{
     color: black;
+}
+.sort-by{
+    outline: none;
+    font-size: 85%;
+    width: 80%;
+    height: 15%;
+    background-color: #e78a21;
+    padding: 1.5% 2%;
+    border-radius: 15px;
+    border: none;
+    color: white;
+}
+.sort-by option {
+    background-color: white; 
+    color: black; 
+}
+.sort-by-full{
+    width: 34%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
