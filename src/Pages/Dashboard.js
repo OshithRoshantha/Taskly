@@ -47,11 +47,11 @@ export default function Dashboard() {
             </div>
             <div className='dashboard-item3'>
                 <div className='head-text'>
-                    <p className='b'>To do</p>
+                    <p className='b'>Done</p>
                     <div className='sort-by-full'>
                         <i class="bi bi-sort-alpha-down"></i>&nbsp;&nbsp;
                         <select className='sort-by'>
-                            <option selected>Done</option>
+                            <option selected>Due Date</option>
                             <option>Priority</option>
                         </select> 
                     </div>
