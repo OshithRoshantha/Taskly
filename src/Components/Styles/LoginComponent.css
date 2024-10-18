@@ -25,3 +25,12 @@
 .linkTo{
     text-decoration: none;
 }
+.invalid-text{
+    color: red;
+    margin-top: 4%;
+    font-size: 90%;
+    margin-bottom: 0%;
+}
+.row{
+    margin-top: 2%;
+}
