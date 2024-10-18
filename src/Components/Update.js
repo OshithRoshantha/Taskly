@@ -21,11 +21,16 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     };
 
     useEffect(() => {
-        if (color=='#5D68C4'){setBackgroundColor('blue-back')}
-        else if (color=='#6BB779'){setBackgroundColor('green-back')}
-        else if (color=='#D45661'){setBackgroundColor('red-back')}
-        else if (color=='#D28E2F'){setBackgroundColor('yellow-back')}
-        else if (color=='#3496D4'){setBackgroundColor('light-blue-back')}
+        if(color=="#3496D4")
+            setBackgroundColor('light-blue-back');
+        else if(color=="#6BB779")
+            setBackgroundColor('green-back');
+        else if(color=="#D45661")
+            setBackgroundColor('red-back');
+        else if(color=="#D28E2F")
+            setBackgroundColor('yellow-back');
+        else if(color=="#5D68C4")
+            setBackgroundColor('blue-back');
      }, [color]);
 
 
@@ -63,7 +68,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                 ></textarea>
                 <div className='btn-tray btn-tray3'>
                     <DatePicker
-                        className="date-picker"
+                        className={`date-picker ${backgroundColor}`}
                         selected={selectedDate}
                         onChange={(date) =>{setSelectedDate(date);updateBtnModel();}}
                         placeholderText='Due date'

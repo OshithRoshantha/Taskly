@@ -17,12 +17,17 @@ export default function Add({closeAddTask}) {
     };
 
     useEffect(() => {
-       if (color=='#5D68C4'){setBackgroundColor('blue-back')}
-       else if (color=='#6BB779'){setBackgroundColor('green-back')}
-       else if (color=='#D45661'){setBackgroundColor('red-back')}
-       else if (color=='#D28E2F'){setBackgroundColor('yellow-back')}
-       else if (color=='#3496D4'){setBackgroundColor('light-blue-back')}
-    }, [color]);
+        if(color=="#3496D4")
+            setBackgroundColor('light-blue-back');
+        else if(color=="#6BB779")
+            setBackgroundColor('green-back');
+        else if(color=="#D45661")
+            setBackgroundColor('red-back');
+        else if(color=="#D28E2F")
+            setBackgroundColor('yellow-back');
+        else if(color=="#5D68C4")
+            setBackgroundColor('blue-back');
+     }, [color]);
 
   return (
     <div className='fill-area'>
@@ -31,7 +36,7 @@ export default function Add({closeAddTask}) {
             <textarea className='task-desc' rows={7} placeholder='Add a Description'></textarea>
             <div className='btn-tray'>
                 <DatePicker 
-                    className="date-picker"
+                    className={`date-picker ${backgroundColor}`}
                     selected={selectedDate}
                     onChange={(date) => setSelectedDate(date)}
                     placeholderText='Due date'

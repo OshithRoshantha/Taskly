@@ -45,7 +45,6 @@ input:focus,textarea:focus{
     column-gap: 4%;
 }
 .date-picker{
-    background-color: blue;
     width: 60%;
     padding: 2.5% 0%;
     border-radius: 15px;
@@ -55,7 +54,6 @@ input:focus,textarea:focus{
     text-align: center;
 }
 .date-picker:focus{
-    background-color: blue;
     color: white;
 }
 
@@ -87,7 +85,12 @@ input:focus,textarea:focus{
     margin-left: 3%;
 }
 .blue-back{background-color: #5D68C4 !important;}
+.blue-back:hover{background-color: #5D68C4 !important;}
 .green-back{background-color: #6BB779 !important;}
+.green-back:hover{background-color: #6BB779 !important;}
 .red-back{background-color: #D45661 !important;}
+.red-back:hover{background-color: #D45661 !important;}
 .yellow-back{background-color: #D28E2F !important;}
+.yellow-back:hover{background-color: #D28E2F !important;}
 .light-blue-back{background-color: #3496D4 !important;}
+.light-blue-back:hover{background-color: #3496D4 !important;}
