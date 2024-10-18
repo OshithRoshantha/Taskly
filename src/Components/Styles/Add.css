@@ -84,8 +84,8 @@ input:focus,textarea:focus{
 .color-picker{
     margin-left: 3%;
 }
-.blue-back{background-color: #5D68C4;}
-.green-back{background-color: #6BB779;}
-.red-back{background-color: #D45661;}
-.yellow-back{background-color: #D28E2F;}
-.light-blue-back{background-color: #3496D4;}
+.blue-back{background-color: #5D68C4 !important;}
+.green-back{background-color: #6BB779 !important;}
+.red-back{background-color: #D45661 !important;}
+.yellow-back{background-color: #D28E2F !important;}
+.light-blue-back{background-color: #3496D4 !important;}

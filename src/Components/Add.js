@@ -15,6 +15,7 @@ export default function Add({closeAddTask}) {
 
     const handleColorChange = (color) => {
       setColor(color.hex); 
+      console.log(color.hex);
     };
 
     useEffect(() => {
@@ -36,7 +37,7 @@ export default function Add({closeAddTask}) {
                     onChange={(date) => setSelectedDate(date)}
                     placeholderText='Due date'
                 />
-                <select className='task-priority'>
+                <select className='task-priority' style={{backgroundColor:color}}>
                     <option value='LOW'>Low</option>
                     <option value='MID'>Medium</option>
                     <option value='HIGH' selected>High</option>

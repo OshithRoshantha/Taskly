@@ -18,6 +18,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     
     const handleColorChange = (color) => {
         setColor(color.hex); 
+        console.log(color.hex);
     };
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
         else if (color=='#3496D4'){setBackgroundColor('light-blue-back')}
      }, [color]);
 
-     
+
     const handlePriorityChange = (e) => {
         setPriority(e.target.value); 
     };
@@ -68,7 +69,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                         onChange={(date) =>{setSelectedDate(date);updateBtnModel();}}
                         placeholderText='Due date'
                     />
-                    <select style={{ marginLeft: '-13%' ,width:'20%',backgroundColor:taskColor}} className='task-priority' value={priority} onChange={(e) => {
+                    <select style={{ marginLeft: '-13%' ,width:'20%',backgroundColor:color}} className='task-priority' value={priority} onChange={(e) => {
                         handlePriorityChange(e);
                         updateBtnModel();
                     }}>
