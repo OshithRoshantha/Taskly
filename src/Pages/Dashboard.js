@@ -35,10 +35,10 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview taskColor={'#0000FF'} taskTitle={'title1'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#0000FF'} taskTitle={'title2'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#5D68C4'} taskTitle={'title1'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#6BB779'} taskTitle={'title2'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#D45661'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#D28E2F'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                 </div>
                 <p onClick={addTaskHandler} className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
@@ -54,7 +54,7 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"In progress"}/> 
+                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"In progress"}/> 
                 </div>  
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>       
             </div>

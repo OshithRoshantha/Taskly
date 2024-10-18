@@ -9,7 +9,7 @@ export default function Add({closeAddTask}) {
     tomorrow.setDate(tomorrow.getDate()+1);
 
     const [selectedDate, setSelectedDate] = useState(tomorrow);
-    const [color, setColor] = useState('#FFD700');
+    const [color, setColor] = useState('#5D68C4');
 
     const handleColorChange = (color) => {
       setColor(color.hex); 
@@ -35,7 +35,7 @@ export default function Add({closeAddTask}) {
                     className='color-picker'
                     color={color}
                     onChangeComplete={handleColorChange}
-                    colors={['#0000FF', '#FF0000','#FFD700','#800080']}
+                    colors={['#5D68C4', '#6BB779', '#D45661', '#D28E2F', '#3496D4']}
                 />
             </div>
             <div className='btn-tray2'>

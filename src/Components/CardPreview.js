@@ -74,7 +74,7 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
                 <div onClick={() => {hideDropDownModel();handleDelete()}}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
             </div>}  
         </div>
-        <div className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
+        <div style={{ backgroundColor:status==="Done"?'#878787':taskColor }} className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
             {showUpdate && <Update hideUpdateModal={hideUpdateModal} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc} hideUpdateModal={hideUpdateModal}/>}
             <div className='card-header'>
                 <h5 className='card-title'>{taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle}</h5>

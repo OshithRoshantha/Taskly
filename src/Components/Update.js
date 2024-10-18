@@ -57,7 +57,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                         onChange={(date) =>{setSelectedDate(date);updateBtnModel();}}
                         placeholderText='Due date'
                     />
-                    <select style={{ marginLeft: '-13%' ,width:'20%'}} className='task-priority' value={priority} onChange={(e) => {
+                    <select style={{ marginLeft: '-13%' ,width:'20%',backgroundColor:taskColor}} className='task-priority' value={priority} onChange={(e) => {
                         handlePriorityChange(e);
                         updateBtnModel();
                     }}>
@@ -72,7 +72,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                             handleColorChange(color); 
                             updateBtnModel();
                         }}
-                        colors={['#0000FF', '#FF0000', '#FFD700', '#800080']}
+                        colors={['#5D68C4', '#6BB779', '#D45661', '#D28E2F', '#3496D4']}
                     />
                 </div>
                 <div className='btn-tray2'>

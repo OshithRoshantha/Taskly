@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 export default function SignIn() {
 
   const [invalidEmail, setInvalidEmail] = React.useState(false);
-  const [invalidPassword, setInvalidPassword] = React.useState(true);
+  const [invalidPassword, setInvalidPassword] = React.useState(false);
 
   function showInvalidEmail(){
     setInvalidEmail(true);
