@@ -15,7 +15,6 @@ export default function Add({closeAddTask}) {
 
     const handleColorChange = (color) => {
       setColor(color.hex); 
-      console.log(color.hex);
     };
 
     useEffect(() => {

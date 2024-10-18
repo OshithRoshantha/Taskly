@@ -18,7 +18,6 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     
     const handleColorChange = (color) => {
         setColor(color.hex); 
-        console.log(color.hex);
     };
 
     useEffect(() => {
