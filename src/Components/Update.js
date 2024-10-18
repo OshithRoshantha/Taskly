@@ -17,9 +17,9 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     const [showUpdateBtn, setShowUpdateBtn] = useState(false);
     
     const handleColorChange = (color) => {
-        setColor(color.hex); 
+        setColor(color.hex);
     };
-
+    
     useEffect(() => {
         if(color=="#3496D4")
             setBackgroundColor('light-blue-back');
