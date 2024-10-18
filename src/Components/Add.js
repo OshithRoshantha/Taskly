@@ -3,7 +3,6 @@ import './Styles/Add.css'
 import DatePicker from 'react-datepicker';
 import { CirclePicker } from 'react-color';
 import 'react-datepicker/dist/react-datepicker.css';
-import { es, se } from 'date-fns/locale';
 
 export default function Add({closeAddTask}) {
     const tomorrow = new Date();
@@ -31,7 +30,8 @@ export default function Add({closeAddTask}) {
             <input className='task-title' type='text' placeholder='Add a Title'/>
             <textarea className='task-desc' rows={7} placeholder='Add a Description'></textarea>
             <div className='btn-tray'>
-                <DatePicker className={`date-picker ${backgroundColor}`}
+                <DatePicker 
+                    className="date-picker"
                     selected={selectedDate}
                     onChange={(date) => setSelectedDate(date)}
                     placeholderText='Due date'

@@ -45,6 +45,7 @@ input:focus,textarea:focus{
     column-gap: 4%;
 }
 .date-picker{
+    background-color: blue;
     width: 60%;
     padding: 2.5% 0%;
     border-radius: 15px;
@@ -54,6 +55,7 @@ input:focus,textarea:focus{
     text-align: center;
 }
 .date-picker:focus{
+    background-color: blue;
     color: white;
 }
 

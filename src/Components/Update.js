@@ -63,7 +63,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                 ></textarea>
                 <div className='btn-tray btn-tray3'>
                     <DatePicker
-                        className={`date-picker ${backgroundColor}`}
+                        className="date-picker"
                         selected={selectedDate}
                         onChange={(date) =>{setSelectedDate(date);updateBtnModel();}}
                         placeholderText='Due date'
