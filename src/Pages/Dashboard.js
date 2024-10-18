@@ -70,8 +70,8 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
-                <CardPreview taskColor={'#0000FF'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
+                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
+                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
                 </div>
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>

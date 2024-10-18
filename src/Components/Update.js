@@ -1,5 +1,5 @@
 import './Styles/Update.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Styles/Add.css';
 import DatePicker from 'react-datepicker';
 import { CirclePicker } from 'react-color';
@@ -11,13 +11,24 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     const [desc, setDesc] = useState(taskDesc); 
     const [selectedDate, setSelectedDate] = useState(taskDate);
     const [color, setColor] = useState(taskColor);
+    const [backgroundColor, setBackgroundColor] = useState('blue-back');
     const [priority, setPriority] = useState(taskPriority);
     const [showDiscard, setShowDiscard] = useState(false);
     const [showUpdateBtn, setShowUpdateBtn] = useState(false);
+    
     const handleColorChange = (color) => {
         setColor(color.hex); 
     };
 
+    useEffect(() => {
+        if (color=='#5D68C4'){setBackgroundColor('blue-back')}
+        else if (color=='#6BB779'){setBackgroundColor('green-back')}
+        else if (color=='#D45661'){setBackgroundColor('red-back')}
+        else if (color=='#D28E2F'){setBackgroundColor('yellow-back')}
+        else if (color=='#3496D4'){setBackgroundColor('light-blue-back')}
+     }, [color]);
+
+     
     const handlePriorityChange = (e) => {
         setPriority(e.target.value); 
     };
@@ -52,7 +63,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                 ></textarea>
                 <div className='btn-tray btn-tray3'>
                     <DatePicker
-                        className='date-picker'
+                        className={`date-picker ${backgroundColor}`}
                         selected={selectedDate}
                         onChange={(date) =>{setSelectedDate(date);updateBtnModel();}}
                         placeholderText='Due date'

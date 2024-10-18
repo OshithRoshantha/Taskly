@@ -45,7 +45,6 @@ input:focus,textarea:focus{
     column-gap: 4%;
 }
 .date-picker{
-    background-color: #5D68C4;
     width: 60%;
     padding: 2.5% 0%;
     border-radius: 15px;
@@ -55,9 +54,9 @@ input:focus,textarea:focus{
     text-align: center;
 }
 .date-picker:focus{
-    background-color: #5D68C4;
     color: white;
 }
+
 .date-picker::placeholder{
     color: white;
 }
@@ -85,3 +84,8 @@ input:focus,textarea:focus{
 .color-picker{
     margin-left: 3%;
 }
+.blue-back{background-color: #5D68C4;}
+.green-back{background-color: #6BB779;}
+.red-back{background-color: #D45661;}
+.yellow-back{background-color: #D28E2F;}
+.light-blue-back{background-color: #3496D4;}
