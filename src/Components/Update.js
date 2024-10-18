@@ -50,9 +50,13 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
         setShowUpdateBtn(true);
     }
 
+    function closeUpdateBtnModel(){
+        setShowUpdateBtn(false);
+    }
+
     return (
         <div className='fill-area2'>
-            {showDiscard && <Discard hideUpdateModal={hideUpdateModal} hideDiscardModal={hideDiscardModal}/>}
+            {showDiscard && <Discard closeUpdateBtnModel={closeUpdateBtnModel} hideDiscardModal={hideDiscardModal}/>}
             <div className='update-container'>
                 <input
                     className='task-title update-title'
@@ -92,8 +96,8 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                     />
                 </div>
                 <div className='btn-tray2'>
-                    <button onClick={showDiscardModal} type="button" className="btn btn-info">Cancel</button>
-                    {showUpdateBtn && <button onClick={hideUpdateModal} type="button" className="btn btn-primary update-btn">Update</button>}
+                    {showUpdateBtn && <button onClick={showDiscardModal} type="button" className="btn btn-info">Cancel</button>}  
+                    {showUpdateBtn && <button onClick={closeUpdateBtnModel} type="button" className="btn btn-primary update-btn">Update</button>}
                     <button onClick={handleDelete} type="button" className="btn btn-danger save-btn"><i class="bi bi-trash deleteIcon"></i></button>
                 </div>
             </div>

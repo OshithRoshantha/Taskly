@@ -2,7 +2,7 @@ import React from 'react'
 import './Styles/Discard.css'
 import Button from 'react-bootstrap/Button';
 
-export default function Discard({hideDiscardModal,hideUpdateModal}) {
+export default function Discard({hideDiscardModal,closeUpdateBtnModel}) {
   return (
     <div className='dicard-container'>
         <div className='addContainer pt-3 ps-3 deleteContainer'>
@@ -16,7 +16,7 @@ export default function Discard({hideDiscardModal,hideUpdateModal}) {
                 variant="info" className='cancelBtn'>Cancel</Button>
                 <Button onClick={() => {
                     hideDiscardModal();
-                    hideUpdateModal()
+                    closeUpdateBtnModel()
                 }} 
                 variant='danger' className='text-info mx-2'>Discard</Button>
             </div>      
