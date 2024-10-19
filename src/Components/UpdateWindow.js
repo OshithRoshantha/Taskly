@@ -1,12 +1,11 @@
-import './Styles/Update.css';
 import React, { useState,useEffect } from 'react';
-import './Styles/Add.css';
+import './Styles/UpdateWindow.css'
 import DatePicker from 'react-datepicker';
 import { CirclePicker } from 'react-color';
 import 'react-datepicker/dist/react-datepicker.css';
 import Discard from './Discard';
 
-export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, taskColor, handleDelete,hideUpdateModal}) {
+export default function UpdateWindow({ taskTitle, taskDesc, taskDate, taskPriority, taskColor, handleDelete, handleUpdateModel}) {
     const [title, setTitle] = useState(taskTitle); 
     const [desc, setDesc] = useState(taskDesc); 
     const [selectedDate, setSelectedDate] = useState(taskDate);
@@ -53,12 +52,12 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
     function closeUpdateBtnModel(){
         setShowUpdateBtn(false);
     }
-
-    return (
-        <div className='fill-area2'>
-            {!showUpdateBtn && <div className="close-btn" onClick={hideUpdateModal}><i class="bi bi-x"></i></div>}        
+  return (
+    <div className='update-window'>
+        <div className='update-inner'>
+        {!showUpdateBtn && <div className="close-btn" onClick={handleUpdateModel}><i class="bi bi-x"></i></div>}        
             {showDiscard && <Discard closeUpdateBtnModel={closeUpdateBtnModel} hideDiscardModal={hideDiscardModal}/>}
-            <div className='update-container'>
+            <div>
                 <input
                     className='task-title update-title'
                     type='text'
@@ -103,5 +102,6 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
                 </div>
             </div>
         </div>
-    );
+    </div>
+  )
 }

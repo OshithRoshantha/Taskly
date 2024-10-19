@@ -1,0 +1,43 @@
+.update-window{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.update-inner{
+    z-index: 99;
+    width: 30%;
+    height: 50%;
+    padding-top: 1% ;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.close-btn{
+    margin-top: -0.5%;
+    margin-left: 27%;
+    width: 30px;
+    height: 30px;
+    font-size: 200%;
+    color: rgb(156, 156, 156);
+    z-index: 9999;
+    position: absolute;
+    cursor: pointer;
+}
+.close-btn:hover{
+    color: black;
+}
+.btn-tray2{
+    margin-top: 4%;
+}
+.btn-tray3{
+    padding-left: 7%;
+}
+.update-title{
+    width: 90%;
+}

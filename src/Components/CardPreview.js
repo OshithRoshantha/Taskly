@@ -1,28 +1,29 @@
 import React, { useEffect, useRef } from 'react';
 import './Styles/CardPreview.css'
 import Delete from './Delete';
-import Update from './Update';
+import UpdateWindow from './UpdateWindow';
+import Delete2 from './Delete2';
 
 export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,taskColor,status}) {
     const[dropDownItem1,setDropDownItem1]=React.useState(true);
     const[dropDownItem2,setDropDownItem2]=React.useState(true);
     const[dropDownItem3,setDropDownItem3]=React.useState(true);
     const [deleteModal, setDeleteModal] = React.useState(false);
-    const [showUpdate, setShowUpdate] = React.useState(false);
+    const [deleteModal2, setDeleteModal2] = React.useState(false);
     const [showDropDown, setShowDropDown] = React.useState(false);
     const [remove, setRemove] = React.useState('');
+    const[updateModel,setUpdateModel]=React.useState(false);
 
     function handleDelete(){
         setDeleteModal(!deleteModal);
     }
 
-    function showUpdateModal(){
-        setShowUpdate(true);
+    function handleDelete2(){
+        setDeleteModal2(!deleteModal2);
     }
 
-    function hideUpdateModal(){
-        setShowUpdate(false)
-        console.log('hide update modal');
+    function handleUpdateModel(){
+        setUpdateModel(!updateModel);
     }
 
     function showDropDownModel(){
@@ -64,18 +65,20 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
 
   return (
     <div>
-        {deleteModal && <Delete taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} hideUpdateModal={hideUpdateModal} handleDelete={handleDelete}/>} 
+        {updateModel && <UpdateWindow handleUpdateModel={handleUpdateModel} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc}/>}
+        {deleteModal && <Delete taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleUpdateModel={handleUpdateModel} handleDelete={handleDelete}/>} 
+        {deleteModal2 && <Delete2 taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleDelete2={handleDelete2}/>}
         <div className='toggle-dropDown'>
             <div className='card-toggle' onClick={showDropDownModel}><i class="bi bi-three-dots-vertical"></i></div>
             {showDropDown && <div className='drop-down'>
                 {dropDownItem1 && <div onClick={hideDropDownModel} className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
                 {dropDownItem2 && <div onClick={hideDropDownModel}  className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
                 {dropDownItem3 && <div onClick={hideDropDownModel}  className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
-                <div onClick={() => {hideDropDownModel();handleDelete()}}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
+                <div onClick={() => {hideDropDownModel();handleDelete2()}}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
             </div>}  
         </div>
-        <div style={{ backgroundColor:status==="Done"?'#878787':taskColor }} className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
-            {showUpdate && <Update hideUpdateModal={hideUpdateModal} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc}/>}
+        <div style={{ backgroundColor:status==="Done"?'#878787':taskColor }} className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();handleUpdateModel()}}>
+
             <div className='card-header'>
                 <h5 className='card-title'>{taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle}</h5>
                 <div className='card-toggle hide-toggle'><i class="bi bi-three-dots-vertical"></i></div>
