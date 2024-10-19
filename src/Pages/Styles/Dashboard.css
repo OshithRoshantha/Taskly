@@ -80,3 +80,35 @@
     justify-content: center;
     align-items: center;
 }
+.box1{
+    color: black;
+    width: 200px;
+    height: 280px;
+    background-color: white;
+    padding: 3% 5%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+.legend{
+    margin-top: -35%;
+    font-size: 70%;
+    text-align: center;
+}
+.pie-chart{
+    margin-top: -15%;
+}
+.do{color: #0d94cb;}
+.ip{color: #413ac8;}
+.td{color: #f8a731;}
+
+.box2{
+    background-color: #e78a21;
+    color: white;
+    width: 200px;
+    height: 100px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+}

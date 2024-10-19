@@ -2,6 +2,7 @@ import React from 'react'
 import './Styles/Dashboard.css'
 import CardPreview from '../Components/CardPreview'
 import Add from '../Components/Add'
+import { PieChart } from 'react-minimal-pie-chart';
 
 export default function Dashboard() {
     const [addTask, setAddTask] = React.useState(false);
@@ -13,6 +14,9 @@ export default function Dashboard() {
         setAddTask(false);
     }
 
+    var inProgressCount=120;
+    var toDoCount=15;
+    var doneCount=20;
     var title="Test Titlesdgsdsdfsdfsjkfsdjkfnsjfnakjlfjknjkfaejkgjkerfgnjekgerge";
     var description="sdffdbfjhfbfksnfskdfndfgdgdfffffffffffffffffffffffffsdfsffsfdsfsdfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffskfsndfkjsnfdjfskdf";
     var priority="MID";
@@ -35,8 +39,8 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview taskColor={'#5D68C4'} taskTitle={'title1'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#6BB779'} taskTitle={'title2'} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#5D68C4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    <CardPreview taskColor={'#6BB779'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                     <CardPreview taskColor={'#D45661'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                     <CardPreview taskColor={'#D28E2F'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
                 </div>
@@ -76,7 +80,28 @@ export default function Dashboard() {
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
             <div className='dashboard-item4'>
-                <div className='head-text'><p className='b'>Notes & References</p></div>
+                <div className='head-text'></div>
+                <div className='item-inner'>
+                    <div className='box2'>
+                        <p style={{ marginBottom: "0" }}>Hello,</p>
+                        <h2>Oshith</h2>
+                    </div>
+                </div>
+                <div className='item-inner'>
+                    <div className='box1'>Task Activity
+                    <PieChart className='pie-chart'
+                        data={[
+                            { title: 'In progress', value: inProgressCount, color: '#413ac8' },
+                            { title: 'To do', value: toDoCount, color: '#f8a731' },
+                            { title: 'Done', value: doneCount, color: '#0d94cb' },
+                        ]}
+                        lineWidth={40} 
+                        radius={40}     
+                        animate 
+                    />;
+                    <div className='legend'><i class="bi bi-circle-fill ip"></i>&nbsp;In progress &nbsp;<i class="bi bi-circle-fill td"></i>&nbsp;To do &nbsp;<i class="bi bi-circle-fill do"></i>&nbsp;Done</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
