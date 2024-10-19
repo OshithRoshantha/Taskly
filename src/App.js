@@ -1,5 +1,3 @@
-import logo from './logo.svg';
-import Button from 'react-bootstrap/Button';
 import './App.css';
 import Login from './Pages/Login';
 import Dashboard from './Pages/Dashboard';
