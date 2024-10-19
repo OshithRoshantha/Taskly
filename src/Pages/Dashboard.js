@@ -89,6 +89,10 @@ export default function Dashboard() {
                 </div>
                 <div className='item-inner'>
                     <div className='box1'>Task Activity
+                    <p className='percentage-txt'>
+                        <h1 style={{ marginBottom: "0" }}>{toDoCount}</h1>
+                        <p  style={{ marginBottom: "0" }} className='to-do'>TO DO</p>
+                    </p>
                     <PieChart className='pie-chart'
                         data={[
                             { title: 'In progress', value: inProgressCount, color: '#413ac8' },
