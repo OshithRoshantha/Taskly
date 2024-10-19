@@ -56,6 +56,7 @@ export default function Update({ taskTitle, taskDesc, taskDate, taskPriority, ta
 
     return (
         <div className='fill-area2'>
+            {!showUpdateBtn && <div className="close-btn" onClick={hideUpdateModal}><i class="bi bi-x"></i></div>}        
             {showDiscard && <Discard closeUpdateBtnModel={closeUpdateBtnModel} hideDiscardModal={hideDiscardModal}/>}
             <div className='update-container'>
                 <input

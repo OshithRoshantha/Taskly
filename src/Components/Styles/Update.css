@@ -1,6 +1,9 @@
 .btn-tray3{
     padding-left: 7%;
 }
+.update-title{
+    width: 90%;
+}
 .update-title::placeholder,.update-desc::placeholder{
     color: black;
 }
@@ -25,4 +28,20 @@
 }
 .update-btn{
     color: white;
+}
+.close-btn{
+    margin-top: -18.5%;
+    margin-left: 26%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+    z-index: 99999;
+    position: absolute;
+    color: rgb(156, 156, 156);
+}
+.close-btn:hover{
+    color: black;
 }

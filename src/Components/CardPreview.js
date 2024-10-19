@@ -75,7 +75,7 @@ export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,ta
             </div>}  
         </div>
         <div style={{ backgroundColor:status==="Done"?'#878787':taskColor }} className={` card-layout ${remove}`} onClick={() => {hideDropDownModel();showUpdateModal()}}>
-            {showUpdate && <Update hideUpdateModal={hideUpdateModal} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc} hideUpdateModal={hideUpdateModal}/>}
+            {showUpdate && <Update hideUpdateModal={hideUpdateModal} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc}/>}
             <div className='card-header'>
                 <h5 className='card-title'>{taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle}</h5>
                 <div className='card-toggle hide-toggle'><i class="bi bi-three-dots-vertical"></i></div>
