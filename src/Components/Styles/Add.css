@@ -43,7 +43,7 @@ input:focus,textarea:focus{
     justify-content: right;
     align-items: center;
     column-gap: 4%;
-    margin-top: -0.1%;
+    margin-top: 0%;
 }
 .date-picker{
     width: 60%;

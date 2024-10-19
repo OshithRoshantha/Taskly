@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
     top: 0;
     left: 0;
     position: absolute;
@@ -32,12 +31,18 @@
 .close-btn:hover{
     color: black;
 }
-.btn-tray2{
-    margin-top: 4%;
-}
 .btn-tray3{
     padding-left: 7%;
 }
 .update-title{
     width: 90%;
+}
+.btn-tray5{
+    padding-right: 5%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    column-gap: 4%;
+    margin-top: 0%;
+    margin-top: 4.5%;
 }

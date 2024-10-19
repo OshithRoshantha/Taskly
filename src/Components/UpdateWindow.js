@@ -95,7 +95,7 @@ export default function UpdateWindow({ taskTitle, taskDesc, taskDate, taskPriori
                         colors={['#5D68C4', '#6BB779', '#D45661', '#D28E2F', '#3496D4']}
                     />
                 </div>
-                <div className='btn-tray2'>
+                <div className='btn-tray5'>
                     {showUpdateBtn && <button onClick={showDiscardModal} type="button" className="btn btn-info">Cancel</button>}  
                     {showUpdateBtn && <button onClick={closeUpdateBtnModel} type="button" className="btn btn-primary update-btn">Update</button>}
                     <button onClick={handleDelete} type="button" className="btn btn-danger save-btn"><i class="bi bi-trash deleteIcon"></i></button>
