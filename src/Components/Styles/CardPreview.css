@@ -11,6 +11,9 @@
     padding: 5%;
     color: white;
 }
+.card-layout:hover{
+    box-shadow: none;
+}
 .card-title{
     font-size: large;
 }
@@ -68,7 +71,7 @@
     color: green;
 }
 .card-toggle{
-    z-index: 99;
+    z-index: 9;
     height: 30px;
     width: 30px;
     border-radius: 50%;
