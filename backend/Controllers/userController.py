@@ -1,6 +1,6 @@
 from flask import jsonify,request,Blueprint
 from database import mongoDB
-from Models.user import createAccount
+from Models.user import userCreate
 
 user_controller=Blueprint('user_controller',__name__)
 
@@ -12,7 +12,7 @@ def signup():
     email=userInput["email"]
     password=userInput["password"]
     
-    newUser=createAccount(first_name,last_name,email,password)
+    newUser=userCreate(first_name,last_name,email,password)
     
     if newUser.checkUser(mongoDB.db):
         newUser.addUser(mongoDB.db)
