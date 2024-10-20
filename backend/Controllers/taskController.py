@@ -68,4 +68,14 @@ def changeTask():
     }
     
     userTask.updateTask(userInput["taskId"],newData,mongoDB.db)
-    return jsonify({"message":"taskUpdated"})                                                
+    return jsonify({"message":"taskUpdated"})  
+
+@task_controller.route('/dashboard/count',methods=["POST"])
+@jwt_required()
+def taskCount():
+    userInput=request.json
+    email=get_jwt_identity()
+    status=userInput["status"]
+    
+    count=userTask.getCounts(email,mongoDB.db,status)
+    return jsonify({"count":count})                                              

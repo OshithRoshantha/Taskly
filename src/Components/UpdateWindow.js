@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react';
+import axios from 'axios';
 import './Styles/UpdateWindow.css'
 import DatePicker from 'react-datepicker';
 import { CirclePicker } from 'react-color';
 import 'react-datepicker/dist/react-datepicker.css';
 import Discard from './Discard';
 
-export default function UpdateWindow({ taskTitle, taskDesc, taskDate, taskPriority, taskColor, handleDelete, handleUpdateModel}) {
+export default function UpdateWindow({ getTasks,taskTitle, taskDesc, taskDate, taskPriority, taskColor, handleDelete, handleUpdateModel,taskId,status}) {
     const [title, setTitle] = useState(taskTitle); 
     const [desc, setDesc] = useState(taskDesc); 
     const [selectedDate, setSelectedDate] = useState(taskDate);
@@ -32,6 +33,41 @@ export default function UpdateWindow({ taskTitle, taskDesc, taskDate, taskPriori
             setBackgroundColor('blue-back');
      }, [color]);
 
+
+     const mapPriority=(priority) => {
+        switch (priority) {
+            case "HIGH":
+                return "1";
+            case "MID":
+                return "2";
+            case "LOW":
+                return "3";
+        }
+    };
+
+    function updateTask(){
+        const accessToken = localStorage.getItem('access_token');
+
+        axios.put('http://127.0.0.1:5000/dashboard', {
+            taskId: taskId,
+            taskTitle: title,
+            taskDesc: desc,
+            taskColor: color,
+            taskPriority: mapPriority(taskPriority),
+            taskDate: selectedDate,
+            status:status
+          }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        }).then(response => {
+            getTasks();
+            console.log('Task updated:', response.data);
+        })
+        .catch(error => {
+            console.error('Error adding task:', error);
+        });
+    }
 
     const handlePriorityChange = (e) => {
         setPriority(e.target.value); 
@@ -97,7 +133,7 @@ export default function UpdateWindow({ taskTitle, taskDesc, taskDate, taskPriori
                 </div>
                 <div className='btn-tray5'>
                     {showUpdateBtn && <button onClick={showDiscardModal} type="button" className="btn btn-info">Cancel</button>}  
-                    {showUpdateBtn && <button onClick={closeUpdateBtnModel} type="button" className="btn btn-primary update-btn">Update</button>}
+                    {showUpdateBtn && <button onClick={() => { closeUpdateBtnModel(); updateTask() }} type="button" className="btn btn-primary update-btn">Update</button>}
                     <button onClick={handleDelete} type="button" className="btn btn-danger save-btn"><i class="bi bi-trash deleteIcon"></i></button>
                 </div>
             </div>

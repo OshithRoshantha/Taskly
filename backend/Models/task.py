@@ -36,4 +36,8 @@ class userTask:
 
     @staticmethod
     def deleteTask(taskId,db):
-        db.tasks.delete_one({"_id": ObjectId(taskId)})      
+        db.tasks.delete_one({"_id": ObjectId(taskId)})
+        
+    @staticmethod 
+    def getCounts(email,db,status):
+        return db.tasks.count_documents({"email":email,"status":status})	

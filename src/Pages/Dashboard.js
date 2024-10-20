@@ -10,6 +10,9 @@ export default function Dashboard() {
     const [toDoTasks, setToDoTasks] = useState([]);
     const [inProgressTasks, setInProgressTasks] = useState([]);
     const [doneTasks, setDoneTasks] = useState([]);
+    const [inProgressCount, setInProgressCount] = useState(0);
+    const [toDoCount, setToDoCount] = useState(0);
+    const [doneCount, setDoneCount] = useState(0);
 
     function addTaskHandler(){
         setAddTask(true);
@@ -26,6 +29,9 @@ export default function Dashboard() {
         fetchTasks("To do",sortToDo, setToDoTasks);
         fetchTasks("In progress",sortInProgress, setInProgressTasks);
         fetchTasks("Done",sortDone, setDoneTasks);
+        getTaskCount("To do",setToDoCount);
+        getTaskCount("In progress",setInProgressCount);
+        getTaskCount("Done",setDoneCount);
     }
 
     function fetchTasks(status, sort, stateRef) {
@@ -63,10 +69,23 @@ export default function Dashboard() {
         }
     };
 
-    var inProgressCount=120;
-    var toDoCount=15;
-    var doneCount=20;
-  
+    function getTaskCount(status,countRef){
+        const accessToken = localStorage.getItem('access_token');
+
+        axios.post('http://127.0.0.1:5000/dashboard/count', {
+            status: status
+          }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        }).then(response => {
+            countRef(response.data.count);
+        })
+        .catch(error => {
+            console.error('Error adding task:', error);
+        });
+    }
+ 
   return (
     <div className='main-layout'>
         {addTask && <Add getTasks={getTasks} closeAddTask={closeAddTask}/>}
