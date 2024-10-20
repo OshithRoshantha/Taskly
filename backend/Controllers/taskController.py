@@ -1,7 +1,6 @@
 from flask import jsonify,request,Blueprint
 from database import mongoDB
 from flask_jwt_extended import jwt_required,get_jwt_identity
-from bson import ObjectId
 from Models.task import userTask
 
 task_controller=Blueprint('task_controller',__name__)
@@ -52,4 +51,21 @@ def removeTask():
     userInput=request.json
     
     userTask.deleteTask(userInput["taskId"],mongoDB.db)
-    return jsonify({"message":"taskDeleted"})                                         
+    return jsonify({"message":"taskDeleted"})
+
+@task_controller.route('/dashboard',methods=["PUT"])
+@jwt_required()
+def changeTask():
+    userInput=request.json 
+    newData={
+        "email":get_jwt_identity(),
+        "taskTitle": userInput["taskTitle"],
+        "taskDesc": userInput.get("taskDesc", ""),  
+        "taskColor": userInput["taskColor"],
+        "taskPriority": userInput["taskPriority"],
+        "taskDate": userInput["taskDate"],
+        "status": userInput["status"]
+    }
+    
+    userTask.updateTask(userInput["taskId"],newData,mongoDB.db)
+    return jsonify({"message":"taskUpdated"})                                                

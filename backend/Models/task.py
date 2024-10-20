@@ -22,6 +22,10 @@ class userTask:
         
     def createTask(self,db):
         db.tasks.insert_one(self.setDict())
+    
+    @staticmethod 
+    def updateTask(taskId,newData,db):
+        db.tasks.update_one({"_id": ObjectId(taskId)},{"$set":newData}) 
         
     @staticmethod
     def getTasks(email,status,sort,db):
