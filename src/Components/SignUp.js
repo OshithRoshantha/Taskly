@@ -19,24 +19,6 @@ export default function SignUp() {
     const email = document.querySelector('.create-email').value;
     const password = document.querySelector('.create-password').value;
   
-    axios.post('http://127.0.0.1:5000/signup', {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password
-    })
-    .then(response => {
-      if (response.data["message"]=="userExists"){
-        setUserExists(true);
-      }
-      else if (response.data["message"]=="userAdded"){
-        setUserExists(false);
-        navigate('/');
-      }   
-    })
-    .catch(error => {
-      console.error(error);
-    });
   }
 
   return (

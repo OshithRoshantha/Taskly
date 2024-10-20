@@ -3,6 +3,7 @@ import './Styles/Add.css'
 import DatePicker from 'react-datepicker';
 import { CirclePicker } from 'react-color';
 import 'react-datepicker/dist/react-datepicker.css';
+import axios from 'axios';
 
 export default function Add({closeAddTask}) {
     const tomorrow = new Date();
@@ -29,6 +30,32 @@ export default function Add({closeAddTask}) {
             setBackgroundColor('blue-back');
      }, [color]);
 
+     function addNewTask(){
+        const taskTitle = document.querySelector('.task-title').value;
+        const taskDesc = document.querySelector('.task-desc').value;
+        const taskPriority = document.querySelector('.task-priority').value;
+        const accessToken = localStorage.getItem('access_token');
+
+        axios.post('http://127.0.0.1:5000/dashboard/addTask', {
+            taskTitle: taskTitle,
+            taskDesc: taskDesc,
+            taskColor: color,
+            taskPriority: taskPriority,
+            taskDate: selectedDate,
+            status: "To do"
+          }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        }).then(response => {
+            console.log('Task added:', response.data);
+        })
+        .catch(error => {
+            console.error('Error adding task:', error);
+        });
+    }
+
+
   return (
     <div className='fill-area'>
         <div className='add-container'>
@@ -42,9 +69,9 @@ export default function Add({closeAddTask}) {
                     placeholderText='Due date'
                 />
                 <select className='task-priority' style={{backgroundColor:color}}>
-                    <option value='LOW'>Low</option>
-                    <option value='MID'>Medium</option>
-                    <option value='HIGH' selected>High</option>
+                    <option value='3'>Low</option>
+                    <option value='2'>Medium</option>
+                    <option value='1' selected>High</option>
                 </select>
                 <CirclePicker
                     className='color-picker'
@@ -55,7 +82,7 @@ export default function Add({closeAddTask}) {
             </div>
             <div className='btn-tray2'>
                 <button onClick={closeAddTask} type="button" class="btn btn-info">Cancel</button>
-                <button onClick={closeAddTask}  type="button" class="btn btn-light save-btn">Save</button>
+                <button onClick={() => { closeAddTask(); addNewTask(); }}  type="button" class="btn btn-light save-btn">Save</button>
             </div>
         </div>
     </div>

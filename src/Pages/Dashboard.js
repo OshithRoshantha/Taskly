@@ -3,6 +3,7 @@ import './Styles/Dashboard.css'
 import CardPreview from '../Components/CardPreview'
 import Add from '../Components/Add'
 import { PieChart } from 'react-minimal-pie-chart';
+import axios from 'axios';
 
 export default function Dashboard() {
     const [addTask, setAddTask] = React.useState(false);
@@ -13,6 +14,7 @@ export default function Dashboard() {
     function closeAddTask(){
         setAddTask(false);
     }
+
 //keep (priority) 1:high 2:mid 3:low
     var inProgressCount=120;
     var toDoCount=15;
