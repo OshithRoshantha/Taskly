@@ -1,3 +1,4 @@
+from bson import ObjectId
 class userTask:
     def __init__(self,email,taskTitle,taskDesc,taskColor,taskPriority,taskDate,status):
         self.email=email
@@ -28,3 +29,7 @@ class userTask:
             return db.tasks.find({"email":email,"status":status}).sort({"taskPriority":1})
         elif sort=="date":
             return db.tasks.find({"email":email,"status":status}).sort("taskDate", 1)    
+
+    @staticmethod
+    def deleteTask(taskId,db):
+        db.tasks.delete_one({"_id": ObjectId(taskId)})      
