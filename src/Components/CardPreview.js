@@ -4,7 +4,7 @@ import Delete from './Delete';
 import UpdateWindow from './UpdateWindow';
 import Delete2 from './Delete2';
 
-export default function CardPreview({taskTitle,taskDesc,taskDate,taskPriority,taskColor,status}) {
+export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPriority,taskColor,status}) {
     const[dropDownItem1,setDropDownItem1]=React.useState(true);
     const[dropDownItem2,setDropDownItem2]=React.useState(true);
     const[dropDownItem3,setDropDownItem3]=React.useState(true);

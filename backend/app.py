@@ -13,7 +13,7 @@ app=Flask(__name__)
 app.config['MONGO_URI']=os.getenv('MONGO_URI')
 app.config['JWT_SECRET_KEY']=os.getenv('JWT_SECRET_KEY')
 
-CORS(app)
+CORS(app,supports_credentials=True)
 jwt=JWTManager(app)
 mongoDB.init_app(app)
 app.register_blueprint(user_controller)

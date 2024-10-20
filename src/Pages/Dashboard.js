@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react';
 import './Styles/Dashboard.css'
 import CardPreview from '../Components/CardPreview'
 import Add from '../Components/Add'
@@ -7,6 +7,9 @@ import axios from 'axios';
 
 export default function Dashboard() {
     const [addTask, setAddTask] = React.useState(false);
+    const [toDoTasks, setToDoTasks] = useState([]);
+    const [inProgressTasks, setInProgressTasks] = useState([]);
+    const [doneTasks, setDoneTasks] = useState([]);
 
     function addTaskHandler(){
         setAddTask(true);
@@ -15,15 +18,51 @@ export default function Dashboard() {
         setAddTask(false);
     }
 
-//keep (priority) 1:high 2:mid 3:low
+    function getTasks(){
+        fetchTasks("To do","date", setToDoTasks);
+        fetchTasks("In progress","date", setInProgressTasks);
+        fetchTasks("Done","date", setDoneTasks);
+    }
+
+    function fetchTasks(status, sort, stateRef) {
+        const accessToken = localStorage.getItem('access_token'); 
+
+        axios.post('http://127.0.0.1:5000/dashboard', {
+            status: status,
+            sort: sort
+        }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        })
+        .then(response => {
+            stateRef(response.data.tasks);
+            console.log('Tasks fetched:', response.data.tasks); 
+        })
+        .catch(err => {
+            console.error('Error fetching tasks:', err);
+        });
+    }
+
+    useEffect(() => {
+        getTasks(); 
+    }, []);
+
+    const mapPriority=(priority) => {
+        switch (priority) {
+            case "1":
+                return "HIGH";
+            case "2":
+                return "MID";
+            case "3":
+                return "LOW";
+        }
+    };
+
     var inProgressCount=120;
     var toDoCount=15;
     var doneCount=20;
-    var title="Test Titlesdgsdsdfsdfsjkfsdjkfnsjfnakjlfjknjkfaejkgjkerfgnjekgerge";
-    var description="sdffdbfjhfbfksnfskdfndfgdgdfffffffffffffffffffffffffsdfsffsfdsfsdfsfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffskfsndfkjsnfdjfskdf";
-    var priority="MID";
-    const date = new Date();
-    
+  
   return (
     <div className='main-layout'>
         {addTask && <Add closeAddTask={closeAddTask}/>}
@@ -41,10 +80,17 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                    <CardPreview taskColor={'#5D68C4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#6BB779'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#D45661'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
-                    <CardPreview taskColor={'#D28E2F'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"To do"}/> 
+                    {toDoTasks.map(task => (
+                        <CardPreview 
+                            taskId={task._id} 
+                            taskColor={task.taskColor}
+                            taskTitle={task.taskTitle} 
+                            taskDesc={task.taskDesc}
+                            taskPriority={mapPriority(task.taskPriority)} 
+                            taskDate={new Date(task.taskDate)} 
+                            status={task.status}
+                        />
+                    ))}
                 </div>
                 <p onClick={addTaskHandler} className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
@@ -60,7 +106,17 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"In progress"}/> 
+                    {inProgressTasks.map(task => (
+                        <CardPreview 
+                            taskId={task._id} 
+                            taskColor={task.taskColor}
+                            taskTitle={task.taskTitle} 
+                            taskDesc={task.taskDesc}
+                            taskPriority={mapPriority(task.taskPriority)} 
+                            taskDate={new Date(task.taskDate)} 
+                            status={task.status}
+                        />
+                    ))}
                 </div>  
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>       
             </div>
@@ -76,8 +132,17 @@ export default function Dashboard() {
                     </div>
                 </div>
                 <div className='item-inner'>
-                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
-                <CardPreview taskColor={'#3496D4'} taskTitle={title} taskDesc={description} taskPriority={priority} taskDate={date} status={"Done"}/> 
+                    {doneTasks.map(task => (
+                        <CardPreview 
+                            taskId={task._id} 
+                            taskColor={task.taskColor}
+                            taskTitle={task.taskTitle} 
+                            taskDesc={task.taskDesc}
+                            taskPriority={mapPriority(task.taskPriority)} 
+                            taskDate={new Date(task.taskDate)} 
+                            status={task.status}
+                        />
+                    ))}
                 </div>
                 <p onClick={addTaskHandler}  className='add-task' align='center'><i class="bi bi-plus-lg"></i>&nbsp;Add Task</p>
             </div>
