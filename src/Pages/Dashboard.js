@@ -13,7 +13,7 @@ export default function Dashboard() {
     function closeAddTask(){
         setAddTask(false);
     }
-
+//keep (priority) 1:high 2:mid 3:low
     var inProgressCount=120;
     var toDoCount=15;
     var doneCount=20;

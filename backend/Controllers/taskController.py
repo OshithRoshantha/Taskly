@@ -1,11 +1,12 @@
 from flask import jsonify,request,Blueprint
 from database import mongoDB
 from flask_jwt_extended import jwt_required,get_jwt_identity
+from bson import ObjectId
 from Models.task import userTask
 
 task_controller=Blueprint('task_controller',__name__)
 
-@task_controller.route('/dashboard',methods=["POST"])
+@task_controller.route('/dashboard/addTask',methods=["POST"])
 @jwt_required()
 def addTask():
     userInput=request.json
@@ -21,3 +22,29 @@ def addTask():
     
     newTask.createTask(mongoDB.db)
     return jsonify({"message":"taskAdded"})
+
+@task_controller.route('/dashboard',methods=["POST"])
+@jwt_required()
+def displayTasks():
+    userInput=request.json
+    email=get_jwt_identity()
+    status=userInput["status"]
+    sort=userInput["sort"]
+    
+    tasks=userTask.getTasks(email,status,sort,mongoDB.db)
+    
+    task_list = []
+    for task in tasks:
+        task_list.append({
+            "_id": str(task["_id"]),
+            "taskTitle": task["taskTitle"],
+            "taskDesc": task.get("taskDesc", ""),
+            "taskColor": task["taskColor"],
+            "taskPriority": task["taskPriority"],
+            "taskDate": task["taskDate"],
+            "status": task["status"]
+        })
+
+    return jsonify({"tasks": task_list})
+        
+                                             
