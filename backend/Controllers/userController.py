@@ -7,12 +7,12 @@ user_controller=Blueprint('user_controller',__name__)
 @user_controller.route('/signup',methods=["POST"])
 def signup():
     userInput=request.json
-    first_name=userInput["first_name"]
-    last_name=userInput["last_name"]
+    firstName=userInput["firstName"]
+    lastName=userInput["lastName"]
     email=userInput["email"]
     password=userInput["password"]
     
-    newUser=userCreate(first_name,last_name,email,password)
+    newUser=userCreate(firstName,lastName,email,password)
     
     if newUser.checkUser(mongoDB.db):
         newUser.addUser(mongoDB.db)
