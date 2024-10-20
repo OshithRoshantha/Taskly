@@ -53,7 +53,7 @@ export default function UpdateWindow({ getTasks,taskTitle, taskDesc, taskDate, t
             taskTitle: title,
             taskDesc: desc,
             taskColor: color,
-            taskPriority: mapPriority(taskPriority),
+            taskPriority: mapPriority(priority),
             taskDate: selectedDate,
             status:status
           }, {
