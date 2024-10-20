@@ -5,7 +5,7 @@ import { CirclePicker } from 'react-color';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
 
-export default function Add({closeAddTask}) {
+export default function Add({closeAddTask,getTasks}) {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate()+1);
 
@@ -48,6 +48,7 @@ export default function Add({closeAddTask}) {
                 Authorization: `Bearer ${accessToken}` 
             }
         }).then(response => {
+            getTasks();
             console.log('Task added:', response.data);
         })
         .catch(error => {

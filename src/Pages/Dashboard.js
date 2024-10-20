@@ -65,7 +65,7 @@ export default function Dashboard() {
   
   return (
     <div className='main-layout'>
-        {addTask && <Add closeAddTask={closeAddTask}/>}
+        {addTask && <Add getTasks={getTasks} closeAddTask={closeAddTask}/>}
         <div className='head-strip h4 mb-0'>Dashboard</div>
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
