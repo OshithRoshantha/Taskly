@@ -112,8 +112,8 @@ export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPrio
   return (
     <div>
         {updateModel && <UpdateWindow handleUpdateModel={handleUpdateModel} handleDelete={handleDelete} taskPriority={taskPriority} taskTitle={taskTitle} taskColor={taskColor} taskDate={taskDate} taskDesc={taskDesc}/>}
-        {deleteModal && <Delete taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleUpdateModel={handleUpdateModel} handleDelete={handleDelete}/>} 
-        {deleteModal2 && <Delete2 taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleDelete2={handleDelete2}/>}
+        {deleteModal && <Delete getTasks={getTasks} taskId={taskId} taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleUpdateModel={handleUpdateModel} handleDelete={handleDelete}/>} 
+        {deleteModal2 && <Delete2 getTasks={getTasks} taskId={taskId} taskTitle={taskTitle.length>27?`${taskTitle.slice(0,27)}...`:taskTitle} handleDelete2={handleDelete2}/>}
         <div className='toggle-dropDown'>
             <div className='card-toggle' onClick={showDropDownModel}><i class="bi bi-three-dots-vertical"></i></div>
             {showDropDown && <div className='drop-down'>

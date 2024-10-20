@@ -19,9 +19,13 @@ export default function Dashboard() {
     }
 
     function getTasks(){
-        fetchTasks("To do","date", setToDoTasks);
-        fetchTasks("In progress","date", setInProgressTasks);
-        fetchTasks("Done","date", setDoneTasks);
+        const sortToDo = document.querySelector('.sort-toDo').value;
+        const sortInProgress = document.querySelector('.sort-inProgress').value;
+        const sortDone = document.querySelector('.sort-done').value;
+
+        fetchTasks("To do",sortToDo, setToDoTasks);
+        fetchTasks("In progress",sortInProgress, setInProgressTasks);
+        fetchTasks("Done",sortDone, setDoneTasks);
     }
 
     function fetchTasks(status, sort, stateRef) {
@@ -73,9 +77,9 @@ export default function Dashboard() {
                     <p className='b'>To do</p>
                     <div className='sort-by-full'>
                         <i class="bi bi-sort-alpha-down"></i>&nbsp;&nbsp;
-                        <select className='sort-by'>
-                            <option selected>Due Date</option>
-                            <option>Priority</option>
+                        <select className='sort-by sort-toDo' onChange={getTasks}>
+                            <option value="date" selected>Due Date</option>
+                            <option value="priority">Priority</option>
                         </select> 
                     </div>
                 </div>
@@ -100,9 +104,9 @@ export default function Dashboard() {
                     <p className='b'>In progress</p>
                     <div className='sort-by-full'>
                         <i class="bi bi-sort-alpha-down"></i>&nbsp;&nbsp;
-                        <select className='sort-by'>
-                            <option selected>Due Date</option>
-                            <option>Priority</option>
+                        <select className='sort-by sort-inProgress' onChange={getTasks}>
+                            <option value="date" selected>Due Date</option>
+                            <option value="priority">Priority</option>
                         </select> 
                     </div>
                 </div>
@@ -127,9 +131,9 @@ export default function Dashboard() {
                     <p className='b'>Done</p>
                     <div className='sort-by-full'>
                         <i class="bi bi-sort-alpha-down"></i>&nbsp;&nbsp;
-                        <select className='sort-by'>
-                            <option selected>Due Date</option>
-                            <option>Priority</option>
+                        <select className='sort-by sort-done' onChange={getTasks}>
+                            <option value="date" selected>Due Date</option>
+                            <option value="priority">Priority</option>
                         </select> 
                     </div>
                 </div>
