@@ -3,8 +3,9 @@ import './Styles/CardPreview.css'
 import Delete from './Delete';
 import UpdateWindow from './UpdateWindow';
 import Delete2 from './Delete2';
+import axios from 'axios';
 
-export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPriority,taskColor,status}) {
+export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPriority,taskColor,status,getTasks}) {
     const[dropDownItem1,setDropDownItem1]=React.useState(true);
     const[dropDownItem2,setDropDownItem2]=React.useState(true);
     const[dropDownItem3,setDropDownItem3]=React.useState(true);
@@ -32,6 +33,51 @@ export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPrio
 
     function hideDropDownModel(){
         setShowDropDown(false);
+    }
+
+    function moveToDone(){
+        updateTaskStatus("Done");
+    }
+    function moveToInProgress(){
+        updateTaskStatus("In progress");
+    }
+    function moveToToDo(){
+        updateTaskStatus("To do");
+    }
+
+    const mapPriority=(priority) => {
+        switch (priority) {
+            case "HIGH":
+                return "1";
+            case "MID":
+                return "2";
+            case "LOW":
+                return "3";
+        }
+    };
+
+    function updateTaskStatus(updateStatus){
+        const accessToken = localStorage.getItem('access_token');
+
+        axios.put('http://127.0.0.1:5000/dashboard', {
+            taskId: taskId,
+            taskTitle: taskTitle,
+            taskDesc: taskDesc,
+            taskColor: taskColor,
+            taskPriority: mapPriority(taskPriority),
+            taskDate: taskDate,
+            status: updateStatus
+          }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        }).then(response => {
+            getTasks();
+            console.log('Task updated:', response.data);
+        })
+        .catch(error => {
+            console.error('Error adding task:', error);
+        });
     }
 
     const formatDate = (dateObject) => {
@@ -71,9 +117,9 @@ export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPrio
         <div className='toggle-dropDown'>
             <div className='card-toggle' onClick={showDropDownModel}><i class="bi bi-three-dots-vertical"></i></div>
             {showDropDown && <div className='drop-down'>
-                {dropDownItem1 && <div onClick={hideDropDownModel} className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
-                {dropDownItem2 && <div onClick={hideDropDownModel}  className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
-                {dropDownItem3 && <div onClick={hideDropDownModel}  className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
+                {dropDownItem1 && <div  onClick={() => {hideDropDownModel();moveToToDo()}}  className='drop-down-item'>To do&nbsp;&nbsp;<i class="bi bi-hourglass-split"></i></div>}
+                {dropDownItem2 && <div  onClick={() => {hideDropDownModel();moveToInProgress()}}   className='drop-down-item'>In progress&nbsp;&nbsp;<i class="bi bi-check-circle"></i></div>}
+                {dropDownItem3 && <div  onClick={() => {hideDropDownModel();moveToDone()}}   className='drop-down-item'>Done&nbsp;&nbsp;<i class="bi bi-check-circle-fill"></i></div>}
                 <div onClick={() => {hideDropDownModel();handleDelete2()}}  className='drop-down-item delete'>Delete&nbsp;&nbsp;<i class="bi bi-trash deleteIcon"></i></div>
             </div>}  
         </div>

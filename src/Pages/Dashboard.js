@@ -89,6 +89,7 @@ export default function Dashboard() {
                             taskPriority={mapPriority(task.taskPriority)} 
                             taskDate={new Date(task.taskDate)} 
                             status={task.status}
+                            getTasks={getTasks}
                         />
                     ))}
                 </div>
@@ -115,6 +116,7 @@ export default function Dashboard() {
                             taskPriority={mapPriority(task.taskPriority)} 
                             taskDate={new Date(task.taskDate)} 
                             status={task.status}
+                            getTasks={getTasks}
                         />
                     ))}
                 </div>  
@@ -141,6 +143,7 @@ export default function Dashboard() {
                             taskPriority={mapPriority(task.taskPriority)} 
                             taskDate={new Date(task.taskDate)} 
                             status={task.status}
+                            getTasks={getTasks}
                         />
                     ))}
                 </div>
