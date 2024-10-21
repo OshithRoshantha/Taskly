@@ -45,13 +45,11 @@ def displayTasks():
         })
     return jsonify({"tasks": task_list})
         
-@task_controller.route('/dashboard',methods=["DELETE"])
+@task_controller.route('/dashboard/<taskId>', methods=["DELETE"])
 @jwt_required()
-def removeTask():
-    userInput=request.json
-    
-    userTask.deleteTask(userInput["taskId"],mongoDB.db)
-    return jsonify({"message":"taskDeleted"})
+def removeTask(taskId):
+    userTask.deleteTask(taskId, mongoDB.db) 
+    return jsonify({"message": "taskDeleted"})
 
 @task_controller.route('/dashboard',methods=["PUT"])
 @jwt_required()

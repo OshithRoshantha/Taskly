@@ -5,18 +5,16 @@ import axios from 'axios';
 
 export default function({taskTitle,handleDelete2,taskId,getTasks}) {
 
-function deleteTask(taskId) {
+  function deleteTask(taskId) {
     const accessToken = localStorage.getItem('access_token');  
-    axios.delete(`http://127.0.0.1:5000/dashboard`, {
+    axios.delete(`http://127.0.0.1:5000/dashboard/${taskId}`, {  
       headers: {
         Authorization: `Bearer ${accessToken}`
-      },
-      data: {
-        taskId: taskId 
       }
-    }).then(response => {
+    })
+    .then(response => {
       console.log('Task deleted:', response.data);
-      getTasks(); 
+      getTasks();  
     })
     .catch(error => {
       console.error('Error deleting task:', error);
@@ -30,7 +28,7 @@ function deleteTask(taskId) {
         <div className="deleteSub">This action is permanent and cannot be undone.</div><br/>
         <div className="buttonContainer pb-3 pe-2 d-flex justify-content-end">
             <Button onClick={() => {handleDelete2()}} variant="info" className='cancelBtn'>Cancel</Button>
-            <Button onClick={() => {handleDelete2();deleteTask()}} variant='danger' className='text-info mx-2'>Delete</Button>
+            <Button onClick={() => {handleDelete2();deleteTask(taskId)}} variant='danger' className='text-info mx-2'>Delete</Button>
         </div>      
       </div>
     </div>
