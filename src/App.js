@@ -31,7 +31,7 @@ function App() {
     checkSession();
     const interval = setInterval(() => {
       checkSession();
-    }, 60000);
+    }, 100);
     return () => clearInterval(interval);
   }, []);
 
