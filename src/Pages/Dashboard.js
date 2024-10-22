@@ -48,7 +48,6 @@ export default function Dashboard() {
         })
         .then(response => {
             stateRef(response.data.tasks);
-            console.log('Tasks fetched:', response.data.tasks); 
         })
         .catch(err => {
             console.error('Error fetching tasks:', err);

@@ -26,8 +26,13 @@ function App() {
     }
 
   }
+
   useEffect(() => {
-    checkSession();  
+    checkSession();
+    const interval = setInterval(() => {
+      checkSession();
+    }, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
