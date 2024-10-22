@@ -22,3 +22,8 @@ class userCreate:
         userExists=db.users.find_one({"email":self.email})
         if not userExists:
             return True
+     
+    @staticmethod    
+    def userName(email,db):
+        return db.users.find_one({"email":email},{"_id": 0,"password":0})
+    

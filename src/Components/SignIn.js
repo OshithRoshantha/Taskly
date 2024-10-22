@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Styles/LoginComponent.css'
 import Col from 'react-bootstrap/Col';
@@ -57,6 +58,10 @@ export default function SignIn() {
   function hideInvalidPassword(){
     setInvalidPassword(false);
   }
+
+  useEffect(() => {
+    localStorage.removeItem('access_token');  
+  }, []);
 
   return (
     <div className='container'>

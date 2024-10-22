@@ -13,6 +13,7 @@ export default function Dashboard() {
     const [inProgressCount, setInProgressCount] = useState(0);
     const [toDoCount, setToDoCount] = useState(0);
     const [doneCount, setDoneCount] = useState(0);
+    const [userName, setUserName] = useState('');
 
     function addTaskHandler(){
         setAddTask(true);
@@ -54,9 +55,9 @@ export default function Dashboard() {
         });
     }
 
-    useEffect(() => {
-        getTasks(); 
-    }, []);
+    function logout(){
+        window.location.href = '/';
+    }
 
     const mapPriority=(priority) => {
         switch (priority) {
@@ -68,6 +69,21 @@ export default function Dashboard() {
                 return "LOW";
         }
     };
+
+    function getUser(){
+        const accessToken = localStorage.getItem('access_token');
+        axios.post('http://127.0.0.1:5000/dashboard/userInfo',{},{
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        })
+        .then(response => {
+            setUserName(response.data.user.first_name);
+        })
+        .catch(error => {
+            console.error('Error fetching user:', error);
+        });
+    }
 
     function getTaskCount(status,countRef){
         const accessToken = localStorage.getItem('access_token');
@@ -85,11 +101,18 @@ export default function Dashboard() {
             console.error('Error adding task:', error);
         });
     }
+
+    useEffect(() => {
+        getTasks(); 
+        getUser();
+    }, []);
  
   return (
     <div className='main-layout'>
         {addTask && <Add getTasks={getTasks} closeAddTask={closeAddTask}/>}
-        <div className='head-strip h4 mb-0'>Dashboard</div>
+        <div className='head-strip h4 mb-0'>Dashboard
+            <button onClick={() => {logout()}} type="button" class="btn btn-danger">Log out</button>
+        </div>
         <div className='dashboard-container'>
             <div className='dashboard-item1'>
                 <div className='head-text'>
@@ -177,7 +200,7 @@ export default function Dashboard() {
                 <div className='item-inner'>
                     <div className='box2'>
                         <p style={{ marginBottom: "0" }}>Hello,</p>
-                        <h2>Oshith</h2>
+                        <h2>{userName}</h2>
                     </div>
                 </div>
                 <div className='item-inner'>
