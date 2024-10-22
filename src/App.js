@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SessionMessage from './Components/SessionMessage';
 import { useEffect } from 'react';
+import jwtDecode from 'jwt-decode';
 
 function App() {
   const [sessionMessage, setSessionMessage] = React.useState(false);
@@ -14,8 +15,10 @@ function App() {
   }
 
   function checkSession(){
-    const accessToken = localStorage.getItem('access_token');
-    if(!accessToken){
+    const accessToken=localStorage.getItem('access_token');
+    const decodedToken=jwtDecode(accessToken);
+    const expirationTime=decodedToken.exp * 1000;
+    if(Date.now()>=expirationTime){
       setSessionMessage(true);
     }
   }
