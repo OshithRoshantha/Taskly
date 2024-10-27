@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import axios from 'axios';
 
 export default function SignUp() {
-
+  const [showAlert, setShowAlert] = React.useState(false);
   const [userExists, setUserExists] = React.useState(false);
   const [fillFields, setFillFields] = React.useState(false);
   const navigate = useNavigate();
@@ -38,7 +38,10 @@ export default function SignUp() {
       }
       else{
         setUserExists(false);
-        navigate('/');
+        setShowAlert(true);
+        setTimeout(() => {
+          navigate('/');
+        }, 3000);
       }
     })
     .catch(error => {
@@ -48,6 +51,11 @@ export default function SignUp() {
 
   return (
     <div className='container'>
+    {showAlert &&
+    <div className='account-create-alert'>
+      <img className='check-gif' src='../check.gif'/>
+      <p className='create-text'>Account created successfully!</p>
+    </div>}
     <div className="inputcontainer">
     <div className="header">
         <div className="display-3 text-info">Sign Up</div>
