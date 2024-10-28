@@ -14,6 +14,7 @@ export default function Add({closeAddTask,getTasks}) {
     const [color, setColor] = useState('#5D68C4');
     const [aiButton,setAiButton]=useState(false);
     const [taskTitle,setTaskTitle]=useState('');
+    const [loading, setLoading] = useState(false);
 
     function showAiButton(){
         setAiButton(true);
@@ -30,7 +31,8 @@ export default function Add({closeAddTask,getTasks}) {
     function generateTitle(){
         const taskDesc = document.querySelector('.task-desc').value;
         const accessToken = localStorage.getItem('access_token');
-
+        setLoading(true);
+        setTaskTitle('');
         axios.post('http://127.0.0.1:5000/dashboard/generateTopic', {
             summary: taskDesc
           }, {
@@ -38,11 +40,13 @@ export default function Add({closeAddTask,getTasks}) {
                 Authorization: `Bearer ${accessToken}` 
             }
         }).then(response => {
-            setTaskTitle(response.data.topic); 
-            console.log(response.data.topic); 
+            setTaskTitle(response.data.topic);  
         })
         .catch(error => {
             console.error('Generating Error:', error);
+        })
+        .finally(() => {
+            setLoading(false); 
         });
     }
 
@@ -88,7 +92,7 @@ export default function Add({closeAddTask,getTasks}) {
   return (
     <div className='fill-area'>
         <div className='add-container'>
-            <input className='task-title' type='text' value={taskTitle} placeholder='Add a Title'/>
+            <input className='task-title' type='text' value={loading?'Predicting...':taskTitle} placeholder='Add a Title'/>
             <textarea className='task-desc' rows={7} placeholder='Add a Description' onChange={showAiButton}></textarea>
             <div className='btn-tray'>
                 <DatePicker 
