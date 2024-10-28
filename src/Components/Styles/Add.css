@@ -100,6 +100,7 @@ input:focus,textarea:focus{
     width: 100%;
 }
 .ai-generate-button {
+    opacity: .7;
     margin-left: -34%;
     border-radius: 10px;
     padding: 5px 10px;
