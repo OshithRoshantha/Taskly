@@ -12,6 +12,15 @@ export default function Add({closeAddTask,getTasks}) {
     const [selectedDate, setSelectedDate] = useState(tomorrow);
     const [backgroundColor, setBackgroundColor] = useState('blue-back');
     const [color, setColor] = useState('#5D68C4');
+    const [aiButton,setAiButton]=useState(false);
+
+    function showAiButton(){
+        setAiButton(true);
+    }
+
+    function hideAiButton(){
+        setAiButton(false);
+    }
 
     const handleColorChange = (color) => {
       setColor(color.hex); 
@@ -61,7 +70,7 @@ export default function Add({closeAddTask,getTasks}) {
     <div className='fill-area'>
         <div className='add-container'>
             <input className='task-title' type='text' placeholder='Add a Title'/>
-            <textarea className='task-desc' rows={7} placeholder='Add a Description'></textarea>
+            <textarea className='task-desc' rows={7} placeholder='Add a Description' onChange={showAiButton}></textarea>
             <div className='btn-tray'>
                 <DatePicker 
                     className={`date-picker ${backgroundColor}`}
@@ -82,6 +91,9 @@ export default function Add({closeAddTask,getTasks}) {
                 />
             </div>
             <div className='btn-tray2'>
+                <div className='empty-div'>
+                    {aiButton && <button className="ai-generate-button" onClick={hideAiButton}>AI Generate ✨</button>}
+                </div>
                 <button onClick={closeAddTask} type="button" class="btn btn-info">Cancel</button>
                 <button onClick={() => { closeAddTask(); addNewTask(); }}  type="button" class="btn btn-light save-btn">Save</button>
             </div>
