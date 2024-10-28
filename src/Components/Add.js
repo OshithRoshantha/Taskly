@@ -13,6 +13,7 @@ export default function Add({closeAddTask,getTasks}) {
     const [backgroundColor, setBackgroundColor] = useState('blue-back');
     const [color, setColor] = useState('#5D68C4');
     const [aiButton,setAiButton]=useState(false);
+    const [taskTitle,setTaskTitle]=useState('');
 
     function showAiButton(){
         setAiButton(true);
@@ -25,6 +26,25 @@ export default function Add({closeAddTask,getTasks}) {
     const handleColorChange = (color) => {
       setColor(color.hex); 
     };
+
+    function generateTitle(){
+        const taskDesc = document.querySelector('.task-desc').value;
+        const accessToken = localStorage.getItem('access_token');
+
+        axios.post('http://127.0.0.1:5000/dashboard/generateTopic', {
+            summary: taskDesc
+          }, {
+            headers: {
+                Authorization: `Bearer ${accessToken}` 
+            }
+        }).then(response => {
+            setTaskTitle(response.data.topic); 
+            console.log(response.data.topic); 
+        })
+        .catch(error => {
+            console.error('Generating Error:', error);
+        });
+    }
 
     useEffect(() => {
         if(color=="#3496D4")
@@ -58,7 +78,6 @@ export default function Add({closeAddTask,getTasks}) {
             }
         }).then(response => {
             getTasks();
-            console.log('Task added:', response.data);
         })
         .catch(error => {
             console.error('Error adding task:', error);
@@ -69,7 +88,7 @@ export default function Add({closeAddTask,getTasks}) {
   return (
     <div className='fill-area'>
         <div className='add-container'>
-            <input className='task-title' type='text' placeholder='Add a Title'/>
+            <input className='task-title' type='text' value={taskTitle} placeholder='Add a Title'/>
             <textarea className='task-desc' rows={7} placeholder='Add a Description' onChange={showAiButton}></textarea>
             <div className='btn-tray'>
                 <DatePicker 
@@ -92,7 +111,7 @@ export default function Add({closeAddTask,getTasks}) {
             </div>
             <div className='btn-tray2'>
                 <div className='empty-div'>
-                    {aiButton && <button className="ai-generate-button" onClick={hideAiButton}>AI Generate ✨</button>}
+                    {aiButton && <button className="ai-generate-button" onClick={() =>{hideAiButton(); generateTitle();}}>AI Generate ✨</button>}
                 </div>
                 <button onClick={closeAddTask} type="button" class="btn btn-info">Cancel</button>
                 <button onClick={() => { closeAddTask(); addNewTask(); }}  type="button" class="btn btn-light save-btn">Save</button>
