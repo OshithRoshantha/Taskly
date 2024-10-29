@@ -1,8 +1,29 @@
-# Taskly
+# Taskly: AI-Powered Task Management Application
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+## Overview
 
-## 🚧 Project Status
+**Taskly** is a web application that combines task management functionalities with artificial intelligence to streamline productivity. Users can create, edit, and delete tasks, while benefiting from an AI-powered feature that generates task titles based on their descriptions.
 
-**Note: This project is currently under construction.**  
-Actively working on this project and it is not yet ready for production use. Stay tuned for updates!
+## Features
+
+- User account creation and authentication using JWT
+- Create, edit, and delete tasks
+- AI-powered task title generation using a pretrained NLP model
+- Responsive and intuitive user interface
+
+## Technologies Used
+
+- **Frontend**: React
+- **Backend**: Flask 
+- **Database**: MongoDB
+- **AI Model**: T5-small pretrained model from Hugging Face's Transformers library
+- **Authentication**: JSON Web Tokens (JWT)
+
+## Installation
+
+To get started with Taskly, follow these steps:
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/OshithRoshantha/Taskly.git
