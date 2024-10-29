@@ -19,11 +19,4 @@
 - **AI Model**: T5-small pretrained model from Hugging Face's Transformers library
 - **Authentication**: JSON Web Tokens (JWT)
 
-## Installation
 
-To get started with Taskly, follow these steps:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/OshithRoshantha/Taskly.git
