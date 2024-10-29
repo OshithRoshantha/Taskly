@@ -40,7 +40,7 @@ export default function Add({closeAddTask,getTasks}) {
                 Authorization: `Bearer ${accessToken}` 
             }
         }).then(response => {
-            setTaskTitle(response.data.topic);  
+            setTaskTitle(response.data.topic.replace(/\b\w/g, (char) => char.toUpperCase()));  
         })
         .catch(error => {
             console.error('Generating Error:', error);
