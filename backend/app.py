@@ -5,6 +5,7 @@ from flask_jwt_extended import JWTManager
 from Controllers.userController import user_controller
 from Controllers.authController import auth_controller
 from Controllers.taskController import task_controller
+from Controllers.predictController import predictor_controller
 import os
 from dotenv import load_dotenv
 
@@ -19,6 +20,7 @@ mongoDB.init_app(app)
 app.register_blueprint(user_controller)
 app.register_blueprint(auth_controller)
 app.register_blueprint(task_controller)
+app.register_blueprint(predictor_controller)
 
 if __name__ == "__main__":
     app.run(debug=True)
