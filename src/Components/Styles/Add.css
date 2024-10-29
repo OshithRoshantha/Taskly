@@ -134,3 +134,19 @@ input:focus,textarea:focus{
     transition: all 0.5s ease-in-out;
   }
   
+  .loading-animation {
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+      color: #5500cd;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

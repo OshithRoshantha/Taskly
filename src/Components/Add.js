@@ -92,7 +92,7 @@ export default function Add({closeAddTask,getTasks}) {
   return (
     <div className='fill-area'>
         <div className='add-container'>
-            <input className='task-title' type='text' value={loading?'Predicting...':taskTitle} placeholder='Add a Title'/>
+            <input   className={`task-title ${loading ?'loading-animation':''}`} type='text' value={loading?'Generating...':taskTitle} placeholder='Add a Title'/>
             <textarea className='task-desc' rows={7} placeholder='Add a Description' onChange={showAiButton}></textarea>
             <div className='btn-tray'>
                 <DatePicker 
