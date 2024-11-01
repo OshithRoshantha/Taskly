@@ -54,7 +54,7 @@ export default function SignUp() {
     {showAlert &&
     <div className='account-create-alert'>
       <img className='check-gif' src='../check.gif'/>
-      <p className='create-text'>Account created successfully!</p>
+      <p className='create-text'>Registration Successful!</p>
     </div>}
     <div className="inputcontainer">
     <div className="header">
