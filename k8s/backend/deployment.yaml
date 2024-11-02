@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskly-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: taskly-backend
+  template:
+    metadata:
+      labels:
+        app: taskly-backend
+    spec:
+      containers:
+      - name: flask-backend
+        image: oshithroshantha/taskly-backend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+        env:
+        - name: FLASK_RUN_HOST
+          value: "0.0.0.0"
+        - name: MONGO_URI
+          value: "mongodb://taskly-database:27017/taskly_app"

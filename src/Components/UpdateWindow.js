@@ -48,7 +48,7 @@ export default function UpdateWindow({ getTasks,taskTitle, taskDesc, taskDate, t
     function updateTask(){
         const accessToken = localStorage.getItem('access_token');
 
-        axios.put('http://127.0.0.1:5000/dashboard', {
+        axios.put('http://taskly-backend-service:5000/dashboard', {
             taskId: taskId,
             taskTitle: title,
             taskDesc: desc,

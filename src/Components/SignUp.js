@@ -31,7 +31,7 @@ export default function SignUp() {
     }
     setFillFields(false);
     console.log(userData);
-    axios.post('http://127.0.0.1:5000/signup', userData)
+    axios.post('http://taskly-backend-service:5000/signup', userData)
     .then(response => {
       if (response.data.message=="userExists"){
         setUserExists(true);
