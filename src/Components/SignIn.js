@@ -19,7 +19,7 @@ export default function SignIn() {
     const email = document.querySelector('.user-email').value;
     const password = document.querySelector('.user-password').value;
   
-    axios.post('http://taskly-backend-service:5000/', {
+    axios.post('http://taskly.backend.local/', {
       email: email,
       password: password
     })

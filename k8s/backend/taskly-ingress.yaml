@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: taskly-backend-ingress
+spec:
+  rules:
+  - host: taskly.backend.local 
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: taskly-backend-service
+            port:
+              number: 5000
