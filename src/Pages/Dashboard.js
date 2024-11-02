@@ -38,7 +38,7 @@ export default function Dashboard() {
     function fetchTasks(status, sort, stateRef) {
         const accessToken = localStorage.getItem('access_token'); 
 
-        axios.post('http://taskly-backend-service:5000/dashboard', {
+        axios.post('http://localhost:8080/dashboard', {
             status: status,
             sort: sort
         }, {
@@ -71,7 +71,7 @@ export default function Dashboard() {
 
     function getUser(){
         const accessToken = localStorage.getItem('access_token');
-        axios.post('http://taskly-backend-service:5000/dashboard/userInfo',{},{
+        axios.post('http://localhost:8080/dashboard/userInfo',{},{
             headers: {
                 Authorization: `Bearer ${accessToken}` 
             }
@@ -87,7 +87,7 @@ export default function Dashboard() {
     function getTaskCount(status,countRef){
         const accessToken = localStorage.getItem('access_token');
 
-        axios.post('http://taskly-backend-service:5000/dashboard/count', {
+        axios.post('http://localhost:8080/dashboard/count', {
             status: status
           }, {
             headers: {

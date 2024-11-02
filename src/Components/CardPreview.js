@@ -59,7 +59,7 @@ export default function CardPreview({taskId,taskTitle,taskDesc,taskDate,taskPrio
     function updateTaskStatus(updateStatus){
         const accessToken = localStorage.getItem('access_token');
 
-        axios.put('http://taskly.backend.local/dashboard', {
+        axios.put('http://localhost:8080/dashboard', {
             taskId: taskId,
             taskTitle: taskTitle,
             taskDesc: taskDesc,

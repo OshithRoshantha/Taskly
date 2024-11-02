@@ -33,7 +33,7 @@ export default function Add({closeAddTask,getTasks}) {
         const accessToken = localStorage.getItem('access_token');
         setLoading(true);
         setTaskTitle('');
-        axios.post('http://taskly.backend.local/dashboard/generateTopic', {
+        axios.post('http://localhost:8080/dashboard/generateTopic', {
             summary: taskDesc
           }, {
             headers: {
@@ -69,7 +69,7 @@ export default function Add({closeAddTask,getTasks}) {
         const taskPriority = document.querySelector('.task-priority').value;
         const accessToken = localStorage.getItem('access_token');
 
-        axios.post('http://taskly.backend.local/dashboard/addTask', {
+        axios.post('http://localhost:8080/dashboard/addTask', {
             taskTitle: taskTitle,
             taskDesc: taskDesc,
             taskColor: color,
