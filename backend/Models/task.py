@@ -30,7 +30,7 @@ class userTask:
     @staticmethod
     def getTasks(email,status,sort,db):
         if sort=="priority":
-            return db.tasks.find({"email":email,"status":status}).sort({"taskPriority":1})
+            return db.tasks.find({"email":email,"status":status}).sort([("taskPriority", 1)])
         elif sort=="date":
             return db.tasks.find({"email":email,"status":status}).sort("taskDate", 1)    
 

@@ -7,7 +7,7 @@ export default function Delete({taskTitle,handleDelete,handleUpdateModel,taskId,
 
   function deleteTask(taskId) {
     const accessToken = localStorage.getItem('access_token');  
-    axios.delete(`http://localhost:8080/${taskId}`, { 
+    axios.delete(`http://localhost:8080/dashboard/${taskId}`, { 
       headers: {
         Authorization: `Bearer ${accessToken}`
       }
